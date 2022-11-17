@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMA2021", "RMA2021.csproj", "{79861718-F331-4B00-8FFE-8E676D334389}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupForRMA", "SetupForRMA\SetupForRMA.vdproj", "{22C0ADF1-CE13-45C1-B426-653463A510E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,17 +39,6 @@ Global
 		{79861718-F331-4B00-8FFE-8E676D334389}.Release|x64.Build.0 = Release|Any CPU
 		{79861718-F331-4B00-8FFE-8E676D334389}.Release|x86.ActiveCfg = Release|Any CPU
 		{79861718-F331-4B00-8FFE-8E676D334389}.Release|x86.Build.0 = Release|Any CPU
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Debug|Any CPU.ActiveCfg = Debug
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Debug|ARM.ActiveCfg = Debug
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Debug|ARM64.ActiveCfg = Debug
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Debug|x64.ActiveCfg = Debug
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Debug|x86.ActiveCfg = Debug
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Release|Any CPU.ActiveCfg = Release
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Release|Any CPU.Build.0 = Release
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Release|ARM.ActiveCfg = Release
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Release|ARM64.ActiveCfg = Release
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Release|x64.ActiveCfg = Release
-		{22C0ADF1-CE13-45C1-B426-653463A510E5}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

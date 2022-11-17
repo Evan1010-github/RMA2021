@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_9050D87BE07544AD8F1F3D19292472B6"
+        "MsmKey" = "8:_9E5B45C88DE04E039551ADAAF7571C46"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9E5B45C88DE04E039551ADAAF7571C46"
+        "MsmKey" = "8:_E81D572BBD744720AA47860BF55F09BD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -56,6 +56,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -120,9 +128,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9050D87BE07544AD8F1F3D19292472B6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E81D572BBD744720AA47860BF55F09BD"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\MICROTEST.ico"
+            "SourcePath" = "8:C:\\Users\\EVANC\\Desktop\\MICROTEST.ico"
             "TargetName" = "8:MICROTEST.ico"
             "Tag" = "8:"
             "Folder" = "8:_752FCD2DCC8041668BBCC1A30FE1EBBD"
@@ -328,7 +336,7 @@
             "Target" = "8:_9E5B45C88DE04E039551ADAAF7571C46"
             "Folder" = "8:_CA4C6171782143B593059FC17695009E"
             "WorkingFolder" = "8:_752FCD2DCC8041668BBCC1A30FE1EBBD"
-            "Icon" = "8:_9050D87BE07544AD8F1F3D19292472B6"
+            "Icon" = "8:_E81D572BBD744720AA47860BF55F09BD"
             "Feature" = "8:"
             }
         }
