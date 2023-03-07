@@ -1487,6 +1487,7 @@ namespace RMA2021
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add(new DataColumn("流水號", typeof(string)));
             dt.Columns.Add(new DataColumn("狀態", typeof(string)));
+            dt.Columns.Add(new DataColumn("需求日期", typeof(string)));
             dt.Columns.Add(new DataColumn("工令", typeof(string)));
             dt.Columns.Add(new DataColumn("成品半成品", typeof(string)));
             dt.Columns.Add(new DataColumn("型號", typeof(string)));
@@ -1500,7 +1501,7 @@ namespace RMA2021
             dt.Columns.Add(new DataColumn("維修完成日", typeof(string)));
             dt.Columns.Add(new DataColumn("維修人員", typeof(string)));
             dt.Columns.Add(new DataColumn("結案描述", typeof(string)));
-            dt.Columns.Add(new DataColumn("需求日期", typeof(string)));
+
             MySqlConnection con = new MySqlConnection(cs);
             try
             {
