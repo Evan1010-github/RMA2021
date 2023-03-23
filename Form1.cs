@@ -828,21 +828,23 @@ namespace RMA2021
         {
             btnSave.Enabled = false;
             btnDelete.Enabled = false;
+            Clear();
             if (DGVFactoryRepair.CurrentRow.Index != -1)
             {
                 DGVFactoryRepair.Rows[DGVFactoryRepair.CurrentRow.Index].DefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204);
                 DGVFactoryRepair.Rows[DGVFactoryRepair.CurrentRow.Index].DefaultCellStyle.ForeColor = Color.White;
                 txtStatus.Text = DGVFactoryRepair.CurrentRow.Cells[1].Value.ToString();
                 //txtRepairOrCal.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                txtFinishOrSemi.Text = DGVFactoryRepair.CurrentRow.Cells[3].Value.ToString();
-                txtModelName.Text = DGVFactoryRepair.CurrentRow.Cells[4].Value.ToString();
-                txtBoardName.Text = DGVFactoryRepair.CurrentRow.Cells[5].Value.ToString();
-                txtFinishSN.Text = DGVFactoryRepair.CurrentRow.Cells[6].Value.ToString();
+                txtFinishOrSemi.Text = DGVFactoryRepair.CurrentRow.Cells[4].Value.ToString();//4
+                txtModelName.Text = DGVFactoryRepair.CurrentRow.Cells[5].Value.ToString();//5
+                txtBoardName.Text = DGVFactoryRepair.CurrentRow.Cells[6].Value.ToString();//6
+                txtFinishSN.Text = DGVFactoryRepair.CurrentRow.Cells[7].Value.ToString();//7
                 //txtSemiSN.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-                txtBranch.Text = DGVFactoryRepair.CurrentRow.Cells[7].Value.ToString();
-                txtSales.Text = DGVFactoryRepair.CurrentRow.Cells[10].Value.ToString();
-                txtReturnCause.Text = DGVFactoryRepair.CurrentRow.Cells[8].Value.ToString();
+                txtBranch.Text = DGVFactoryRepair.CurrentRow.Cells[8].Value.ToString();//8
+                txtSales.Text = DGVFactoryRepair.CurrentRow.Cells[11].Value.ToString();//11
+                txtReturnCause.Text = DGVFactoryRepair.CurrentRow.Cells[9].Value.ToString();//9
                 txtFinishMark.Text = "";
+              //  txtClient.Text = "";
                 // DGVFactoryRepair.Rows[DGVFactoryRepair.CurrentRow.Index].DefaultCellStyle.BackColor = Color.Yellow;
                 bookID = Convert.ToInt32(DGVFactoryRepair.CurrentRow.Cells[0].Value.ToString());
             }
@@ -1458,6 +1460,7 @@ namespace RMA2021
 
         private void DGVFactoryFixed_Click(object sender, EventArgs e)
         {
+            Clear();    
             if (DGVFactoryFixed.CurrentRow.Index != -1)
             {
                 DGVFactoryFixed.Rows[DGVFactoryFixed.CurrentRow.Index].DefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204);
@@ -1466,14 +1469,14 @@ namespace RMA2021
                 btnDelete.Enabled = false;
                 txtStatus.Text = DGVFactoryFixed.CurrentRow.Cells[1].Value.ToString();
                 //txtRepairOrCal.Text = DGVFactoryFixed.CurrentRow.Cells[2].Value.ToString();
-                txtFinishOrSemi.Text = DGVFactoryFixed.CurrentRow.Cells[3].Value.ToString();
-                txtModelName.Text = DGVFactoryFixed.CurrentRow.Cells[4].Value.ToString();
-                txtBoardName.Text = DGVFactoryFixed.CurrentRow.Cells[5].Value.ToString();
-                txtFinishSN.Text = DGVFactoryFixed.CurrentRow.Cells[6].Value.ToString();
+                txtFinishOrSemi.Text = DGVFactoryFixed.CurrentRow.Cells[4].Value.ToString();
+                txtModelName.Text = DGVFactoryFixed.CurrentRow.Cells[5].Value.ToString();
+                txtBoardName.Text = DGVFactoryFixed.CurrentRow.Cells[6].Value.ToString();
+                txtFinishSN.Text = DGVFactoryFixed.CurrentRow.Cells[7].Value.ToString();
                 //txtSemiSN.Text = DGVFactoryFixed.CurrentRow.Cells[7].Value.ToString();
-                txtBranch.Text = DGVFactoryFixed.CurrentRow.Cells[7].Value.ToString();
-                txtSales.Text = DGVFactoryFixed.CurrentRow.Cells[10].Value.ToString();
-                txtReturnCause.Text = DGVFactoryFixed.CurrentRow.Cells[8].Value.ToString();
+                txtBranch.Text = DGVFactoryFixed.CurrentRow.Cells[8].Value.ToString();
+                txtSales.Text = DGVFactoryFixed.CurrentRow.Cells[11].Value.ToString();
+                txtReturnCause.Text = DGVFactoryFixed.CurrentRow.Cells[9].Value.ToString();
                 txtFinishMark.Text = "";
                 // DGVFactoryFixed.Rows[DGVFactoryFixed.CurrentRow.Index].DefaultCellStyle.BackColor = Color.Yellow;
                 bookID = Convert.ToInt32(DGVFactoryFixed.CurrentRow.Cells[0].Value.ToString());
