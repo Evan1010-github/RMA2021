@@ -22,7 +22,7 @@ namespace RMA2021
         string txtCalPerson = "";
         string txtFQCPerson = "";
         string PlayRole = "";
-     //   bool warning = false;
+        //   bool warning = false;
         public Form1()
         {
             InitializeComponent();
@@ -359,7 +359,7 @@ namespace RMA2021
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            txtReturnCause.Text=txtReturnCause.Text.Replace("'", "\\'");//2022/11/10 can't 輸入報錯問題
+            txtReturnCause.Text = txtReturnCause.Text.Replace("'", "\\'");//2022/11/10 can't 輸入報錯問題
             if (txtStatus.Text != "待結案")
             {
                 if (txtRepairOrCal.Text == "維修")//Sales輸入時Status
@@ -466,8 +466,8 @@ namespace RMA2021
                                   "',客戶名='" + txtClient.Text +
                                  "',配件='" + txtAccessories.Text +
                                  "',版本='" + txtVer.Text +
-                             "',故障描述='" +"@"+"\""+ txtReturnCause.Text +"\"" + //  可逃逸? 
-                //         "',故障描述='" + txtReturnCause.Text +
+                             "',故障描述='" + "@" + "\"" + txtReturnCause.Text + "\"" + //  可逃逸? 
+                                                                                    //         "',故障描述='" + txtReturnCause.Text +
                                  "',出貨日='" + "" +    //2022/2/8  added
                                   "',使用電壓='" + textVolt.Text +         //2022/2/8  added
                                  "',機種名='" + txtModelName.Text +
@@ -844,7 +844,7 @@ namespace RMA2021
                 txtSales.Text = DGVFactoryRepair.CurrentRow.Cells[11].Value.ToString();//11
                 txtReturnCause.Text = DGVFactoryRepair.CurrentRow.Cells[9].Value.ToString();//9
                 txtFinishMark.Text = "";
-              //  txtClient.Text = "";
+                //  txtClient.Text = "";
                 // DGVFactoryRepair.Rows[DGVFactoryRepair.CurrentRow.Index].DefaultCellStyle.BackColor = Color.Yellow;
                 bookID = Convert.ToInt32(DGVFactoryRepair.CurrentRow.Cells[0].Value.ToString());
             }
@@ -1026,6 +1026,10 @@ namespace RMA2021
                             txtBulidPerson = dtn.Rows[i][3].ToString();//SHOW name
                             txtUserNameShow.Text = txtBulidPerson;
                             loginSuccess = true;
+                            // 儲存使用者名稱和密碼到設定值
+                            Properties.Settings.Default.UserName = txtUserID.Text;
+                            Properties.Settings.Default.Password = txtPassword.Text;
+                            Properties.Settings.Default.Save();
 
                             //  MessageBox.Show("登入為" + txtBulidPerson);
                             switch (dtn.Rows[i][4].ToString())
@@ -1086,8 +1090,8 @@ namespace RMA2021
                                     textFactoryFixed.Enabled = true;
                                     groupBox1.Enabled = false;
                                     PlayRole = "eng";
-      //                              warning = true;//支援
-     //                               timer1.Enabled = true;
+                                    //                              warning = true;//支援
+                                    //                               timer1.Enabled = true;
                                     break;
                                 case "test":
                                     txtUserNameShow.Enabled = false;
@@ -1163,6 +1167,9 @@ namespace RMA2021
             }
             finally
             {
+                txtUserID.Text = "";
+                txtPassword.Text = "";
+
                 con.Close();
             }
         }
@@ -1460,7 +1467,7 @@ namespace RMA2021
 
         private void DGVFactoryFixed_Click(object sender, EventArgs e)
         {
-            Clear();    
+            Clear();
             if (DGVFactoryFixed.CurrentRow.Index != -1)
             {
                 DGVFactoryFixed.Rows[DGVFactoryFixed.CurrentRow.Index].DefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204);
@@ -1759,13 +1766,13 @@ namespace RMA2021
         {
             if (DGVFactoryRepair.CurrentRow.Index != -1)
             {
-                string ModelName= DGVFactoryRepair.CurrentRow.Cells[4].Value.ToString();
+                string ModelName = DGVFactoryRepair.CurrentRow.Cells[4].Value.ToString();
                 string BoardName = DGVFactoryRepair.CurrentRow.Cells[5].Value.ToString();
                 string SerialNumber = DGVFactoryRepair.CurrentRow.Cells[6].Value.ToString();
-                string ID= DGVFactoryRepair.CurrentRow.Cells[0].Value.ToString();
+                string ID = DGVFactoryRepair.CurrentRow.Cells[0].Value.ToString();
 
                 //MessageBox.Show("送修建立\n");
-                Form2 popupform2 = new Form2(ModelName,BoardName,SerialNumber,ID);//傳入按的工令
+                Form2 popupform2 = new Form2(ModelName, BoardName, SerialNumber, ID);//傳入按的工令
                 DialogResult dialogresult = popupform2.ShowDialog();
 
                 if (dialogresult == DialogResult.OK)
@@ -1782,29 +1789,29 @@ namespace RMA2021
 
 
         private void timer1_Tick_1(object sender, EventArgs e)
-        {          
+        {
             System.Data.DataTable dtn = new System.Data.DataTable();
             dtn.Columns.Add(new DataColumn("ID", typeof(string)));
             dtn.Columns.Add(new DataColumn("FROM", typeof(string)));
             dtn.Columns.Add(new DataColumn("CALLDATE", typeof(string)));
             dtn.Columns.Add(new DataColumn("FINISHDATE", typeof(string)));
             dtn.Columns.Add(new DataColumn("CLOSE", typeof(string)));
-           // MySqlConnection con = new MySqlConnection(cs1);
+            // MySqlConnection con = new MySqlConnection(cs1);
             MySqlConnection con = new MySqlConnection(connectionString);
-                    try
-                    {
-                        con.Open();//開啟通道，建立連線，可能出現異常,使用try catch語句
-                        string sql = "SELECT count(*) FROM rma.micHELP where finishdate IS NULL;";
-                        using var cmd = new MySqlCommand(sql, con);
-                        using MySqlDataReader rdr = cmd.ExecuteReader();
+            try
+            {
+                con.Open();//開啟通道，建立連線，可能出現異常,使用try catch語句
+                string sql = "SELECT count(*) FROM rma.micHELP where finishdate IS NULL;";
+                using var cmd = new MySqlCommand(sql, con);
+                using MySqlDataReader rdr = cmd.ExecuteReader();
 
-                        while (rdr.Read())
+                while (rdr.Read())
+                {
+                    for (int i = 0; i < rdr.FieldCount; i++)
+                    {
+                        if (rdr[i].ToString() != "0")
                         {
-                            for (int i = 0; i < rdr.FieldCount; i++)
-                            {
-                                if(rdr[i].ToString()!="0")
-                                {
-                                   //MessageBox.Show("CALL");
+                            //MessageBox.Show("CALL");
                             //MessageBox.Show("送修建立\n");
                             Form3 popupform2 = new Form3();//傳入按的工令
                             DialogResult dialogresult = popupform2.ShowDialog();
@@ -1819,24 +1826,31 @@ namespace RMA2021
                             }
                             popupform2.Dispose();
                         }
-                            }
-                        }
-                    con.Close();
                     }
-               
+                }
+                con.Close();
+            }
 
 
-                    catch (MySqlException)
-                    {
-                        MessageBox.Show("SQL SERVER連線異常!!!");
-                    }
-                    finally
-                    {
-                        con.Close();
-                    }
+
+            catch (MySqlException)
+            {
+                MessageBox.Show("SQL SERVER連線異常!!!");
+            }
+            finally
+            {
+                con.Close();
+            }
 
 
-               //     MessageBox.Show("TIMER");
+            //     MessageBox.Show("TIMER");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // 讀取使用者名稱和密碼從設定值
+            txtUserID.Text = Properties.Settings.Default.UserName;
+            txtPassword.Text = Properties.Settings.Default.Password;
         }
     }
 }
