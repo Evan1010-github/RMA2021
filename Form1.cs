@@ -1335,7 +1335,7 @@ namespace RMA2021
             e.Graphics.DrawString("-----------------------------------------------------------------------------------", new Font(new FontFamily("新細明體"), 24), System.Drawing.Brushes.Black, 10, 0);
             e.Graphics.DrawString("客戶【" + txtRepairOrCal.Text + "】單", new Font(new FontFamily("新細明體"), 24), System.Drawing.Brushes.Black, 300, 25);
             e.Graphics.DrawString("客戶: 【" + txtClient.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 50, 75);
-            e.Graphics.DrawString("建單人員: 【" + txtUserID.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 300, 75);
+            e.Graphics.DrawString("建單人員: 【" + txtUserNameShow.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 300, 75);
             e.Graphics.DrawString("建單日期: " + txtBulidDate, new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 550, 75);
             //e.Graphics.DrawString("客戶:" + txtClient.Text, new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 50, 75);   
             e.Graphics.DrawString("機種(型號): 【" + txtModelName.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 50, 100);
