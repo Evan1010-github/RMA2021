@@ -86,6 +86,7 @@ namespace RMA2021
             txtStatus = new System.Windows.Forms.TextBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
             label31 = new System.Windows.Forms.Label();
+            txtWarranty = new System.Windows.Forms.TextBox();
             label30 = new System.Windows.Forms.Label();
             dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             txtOldFixed2 = new System.Windows.Forms.TextBox();
@@ -151,8 +152,11 @@ namespace RMA2021
             txtItemsQuery = new System.Windows.Forms.TextBox();
             dataGridViewItemsQuery = new System.Windows.Forms.DataGridView();
             button4 = new System.Windows.Forms.Button();
-            txtWarranty = new System.Windows.Forms.TextBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            tabFunc = new System.Windows.Forms.TabControl();
+            tabPage12 = new System.Windows.Forms.TabPage();
+            tabPage13 = new System.Windows.Forms.TabPage();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -179,12 +183,14 @@ namespace RMA2021
             ((System.ComponentModel.ISupportInitialize)dataGridViewFactoryQuery).BeginInit();
             tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewItemsQuery).BeginInit();
+            tabFunc.SuspendLayout();
+            tabPage12.SuspendLayout();
             SuspendLayout();
             // 
             // btnSave
             // 
-            btnSave.Location = new System.Drawing.Point(203, 652);
-            btnSave.Margin = new System.Windows.Forms.Padding(5);
+            btnSave.Location = new System.Drawing.Point(204, 762);
+            btnSave.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnSave.Name = "btnSave";
             btnSave.Size = new System.Drawing.Size(143, 71);
             btnSave.TabIndex = 14;
@@ -194,8 +200,8 @@ namespace RMA2021
             // 
             // btnDelete
             // 
-            btnDelete.Location = new System.Drawing.Point(372, 652);
-            btnDelete.Margin = new System.Windows.Forms.Padding(5);
+            btnDelete.Location = new System.Drawing.Point(377, 762);
+            btnDelete.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new System.Drawing.Size(135, 71);
             btnDelete.TabIndex = 15;
@@ -205,8 +211,8 @@ namespace RMA2021
             // 
             // btnCancel
             // 
-            btnCancel.Location = new System.Drawing.Point(533, 652);
-            btnCancel.Margin = new System.Windows.Forms.Padding(5);
+            btnCancel.Location = new System.Drawing.Point(537, 762);
+            btnCancel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new System.Drawing.Size(135, 71);
             btnCancel.TabIndex = 16;
@@ -217,7 +223,7 @@ namespace RMA2021
             // btnSearch
             // 
             btnSearch.Location = new System.Drawing.Point(278, 15);
-            btnSearch.Margin = new System.Windows.Forms.Padding(5);
+            btnSearch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new System.Drawing.Size(152, 51);
             btnSearch.TabIndex = 0;
@@ -230,7 +236,7 @@ namespace RMA2021
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new System.Drawing.Point(6, 84);
-            dataGridView1.Margin = new System.Windows.Forms.Padding(5);
+            dataGridView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridView1.RowTemplate.Height = 25;
@@ -242,7 +248,7 @@ namespace RMA2021
             // txtSearch
             // 
             txtSearch.Location = new System.Drawing.Point(31, 15);
-            txtSearch.Margin = new System.Windows.Forms.Padding(5);
+            txtSearch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new System.Drawing.Size(235, 44);
             txtSearch.TabIndex = 17;
@@ -250,8 +256,8 @@ namespace RMA2021
             // txtClient
             // 
             txtClient.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtClient.Location = new System.Drawing.Point(486, 78);
-            txtClient.Margin = new System.Windows.Forms.Padding(5);
+            txtClient.Location = new System.Drawing.Point(481, 117);
+            txtClient.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtClient.Name = "txtClient";
             txtClient.Size = new System.Drawing.Size(182, 44);
             txtClient.TabIndex = 11;
@@ -265,7 +271,7 @@ namespace RMA2021
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             tabControl1.Location = new System.Drawing.Point(0, 181);
-            tabControl1.Margin = new System.Windows.Forms.Padding(5);
+            tabControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new System.Drawing.Size(1197, 669);
@@ -281,9 +287,9 @@ namespace RMA2021
             tabPage1.Controls.Add(label17);
             tabPage1.Controls.Add(txtFixed);
             tabPage1.Location = new System.Drawing.Point(4, 46);
-            tabPage1.Margin = new System.Windows.Forms.Padding(5);
+            tabPage1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new System.Windows.Forms.Padding(5);
+            tabPage1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage1.Size = new System.Drawing.Size(1189, 619);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "待維修";
@@ -291,7 +297,7 @@ namespace RMA2021
             // btnDoNotRepair
             // 
             btnDoNotRepair.Location = new System.Drawing.Point(537, 12);
-            btnDoNotRepair.Margin = new System.Windows.Forms.Padding(5);
+            btnDoNotRepair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnDoNotRepair.Name = "btnDoNotRepair";
             btnDoNotRepair.Size = new System.Drawing.Size(173, 58);
             btnDoNotRepair.TabIndex = 19;
@@ -302,7 +308,7 @@ namespace RMA2021
             // txtOldFixed
             // 
             txtOldFixed.Location = new System.Drawing.Point(888, 20);
-            txtOldFixed.Margin = new System.Windows.Forms.Padding(5);
+            txtOldFixed.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtOldFixed.Name = "txtOldFixed";
             txtOldFixed.Size = new System.Drawing.Size(281, 44);
             txtOldFixed.TabIndex = 18;
@@ -311,7 +317,7 @@ namespace RMA2021
             // btnRepairFinish
             // 
             btnRepairFinish.Location = new System.Drawing.Point(710, 12);
-            btnRepairFinish.Margin = new System.Windows.Forms.Padding(5);
+            btnRepairFinish.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnRepairFinish.Name = "btnRepairFinish";
             btnRepairFinish.Size = new System.Drawing.Size(171, 58);
             btnRepairFinish.TabIndex = 17;
@@ -333,7 +339,7 @@ namespace RMA2021
             // 
             txtFixed.BackColor = System.Drawing.Color.SeaShell;
             txtFixed.Location = new System.Drawing.Point(168, 25);
-            txtFixed.Margin = new System.Windows.Forms.Padding(5);
+            txtFixed.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtFixed.Multiline = true;
             txtFixed.Name = "txtFixed";
             txtFixed.Size = new System.Drawing.Size(365, 41);
@@ -345,9 +351,9 @@ namespace RMA2021
             tabPage2.Controls.Add(btnTestFinish);
             tabPage2.Controls.Add(dataGridView2);
             tabPage2.Location = new System.Drawing.Point(4, 46);
-            tabPage2.Margin = new System.Windows.Forms.Padding(5);
+            tabPage2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new System.Windows.Forms.Padding(5);
+            tabPage2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage2.Size = new System.Drawing.Size(1189, 619);
             tabPage2.TabIndex = 2;
             tabPage2.Text = "待調校";
@@ -355,7 +361,7 @@ namespace RMA2021
             // btnTestSentRepair
             // 
             btnTestSentRepair.Location = new System.Drawing.Point(85, 15);
-            btnTestSentRepair.Margin = new System.Windows.Forms.Padding(5);
+            btnTestSentRepair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnTestSentRepair.Name = "btnTestSentRepair";
             btnTestSentRepair.Size = new System.Drawing.Size(123, 55);
             btnTestSentRepair.TabIndex = 17;
@@ -366,7 +372,7 @@ namespace RMA2021
             // btnTestFinish
             // 
             btnTestFinish.Location = new System.Drawing.Point(278, 15);
-            btnTestFinish.Margin = new System.Windows.Forms.Padding(5);
+            btnTestFinish.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnTestFinish.Name = "btnTestFinish";
             btnTestFinish.Size = new System.Drawing.Size(154, 55);
             btnTestFinish.TabIndex = 17;
@@ -379,7 +385,7 @@ namespace RMA2021
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Location = new System.Drawing.Point(5, 80);
-            dataGridView2.Margin = new System.Windows.Forms.Padding(5);
+            dataGridView2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 62;
             dataGridView2.RowTemplate.Height = 25;
@@ -394,9 +400,9 @@ namespace RMA2021
             tabPage3.Controls.Add(dataGridView3);
             tabPage3.Controls.Add(btnFQCFinish);
             tabPage3.Location = new System.Drawing.Point(4, 46);
-            tabPage3.Margin = new System.Windows.Forms.Padding(5);
+            tabPage3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new System.Windows.Forms.Padding(5);
+            tabPage3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage3.Size = new System.Drawing.Size(1189, 619);
             tabPage3.TabIndex = 3;
             tabPage3.Text = "待FQC";
@@ -404,7 +410,7 @@ namespace RMA2021
             // btnFQCSentTest
             // 
             btnFQCSentTest.Location = new System.Drawing.Point(85, 15);
-            btnFQCSentTest.Margin = new System.Windows.Forms.Padding(5);
+            btnFQCSentTest.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnFQCSentTest.Name = "btnFQCSentTest";
             btnFQCSentTest.Size = new System.Drawing.Size(126, 55);
             btnFQCSentTest.TabIndex = 17;
@@ -417,7 +423,7 @@ namespace RMA2021
             dataGridView3.AllowUserToAddRows = false;
             dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView3.Location = new System.Drawing.Point(5, 80);
-            dataGridView3.Margin = new System.Windows.Forms.Padding(5);
+            dataGridView3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 62;
             dataGridView3.RowTemplate.Height = 25;
@@ -430,7 +436,7 @@ namespace RMA2021
             // btnFQCFinish
             // 
             btnFQCFinish.Location = new System.Drawing.Point(288, 15);
-            btnFQCFinish.Margin = new System.Windows.Forms.Padding(5);
+            btnFQCFinish.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnFQCFinish.Name = "btnFQCFinish";
             btnFQCFinish.Size = new System.Drawing.Size(149, 55);
             btnFQCFinish.TabIndex = 17;
@@ -442,7 +448,7 @@ namespace RMA2021
             // 
             tabPage4.Controls.Add(dataGridView4);
             tabPage4.Location = new System.Drawing.Point(4, 46);
-            tabPage4.Margin = new System.Windows.Forms.Padding(5);
+            tabPage4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage4.Name = "tabPage4";
             tabPage4.Size = new System.Drawing.Size(1189, 619);
             tabPage4.TabIndex = 4;
@@ -453,7 +459,7 @@ namespace RMA2021
             dataGridView4.AllowUserToAddRows = false;
             dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView4.Location = new System.Drawing.Point(5, 84);
-            dataGridView4.Margin = new System.Windows.Forms.Padding(5);
+            dataGridView4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             dataGridView4.Name = "dataGridView4";
             dataGridView4.RowHeadersWidth = 62;
             dataGridView4.RowTemplate.Height = 25;
@@ -469,9 +475,9 @@ namespace RMA2021
             tabPage5.Controls.Add(txtSearch);
             tabPage5.Controls.Add(btnSearch);
             tabPage5.Location = new System.Drawing.Point(4, 46);
-            tabPage5.Margin = new System.Windows.Forms.Padding(5);
+            tabPage5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage5.Name = "tabPage5";
-            tabPage5.Padding = new System.Windows.Forms.Padding(5);
+            tabPage5.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage5.Size = new System.Drawing.Size(1189, 619);
             tabPage5.TabIndex = 5;
             tabPage5.Text = "查詢";
@@ -480,7 +486,7 @@ namespace RMA2021
             // btnOutput
             // 
             btnOutput.Location = new System.Drawing.Point(987, 15);
-            btnOutput.Margin = new System.Windows.Forms.Padding(5);
+            btnOutput.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnOutput.Name = "btnOutput";
             btnOutput.Size = new System.Drawing.Size(143, 55);
             btnOutput.TabIndex = 18;
@@ -493,7 +499,7 @@ namespace RMA2021
             dataGridView5.AllowUserToAddRows = false;
             dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView5.Location = new System.Drawing.Point(8, 80);
-            dataGridView5.Margin = new System.Windows.Forms.Padding(5);
+            dataGridView5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             dataGridView5.Name = "dataGridView5";
             dataGridView5.RowHeadersWidth = 62;
             dataGridView5.RowTemplate.Height = 25;
@@ -505,8 +511,8 @@ namespace RMA2021
             // txtSales
             // 
             txtSales.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtSales.Location = new System.Drawing.Point(486, 20);
-            txtSales.Margin = new System.Windows.Forms.Padding(5);
+            txtSales.Location = new System.Drawing.Point(481, 58);
+            txtSales.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtSales.Name = "txtSales";
             txtSales.Size = new System.Drawing.Size(182, 44);
             txtSales.TabIndex = 10;
@@ -514,11 +520,11 @@ namespace RMA2021
             // txtReturnCause
             // 
             txtReturnCause.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtReturnCause.Location = new System.Drawing.Point(145, 412);
-            txtReturnCause.Margin = new System.Windows.Forms.Padding(5);
+            txtReturnCause.Location = new System.Drawing.Point(145, 478);
+            txtReturnCause.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtReturnCause.Multiline = true;
             txtReturnCause.Name = "txtReturnCause";
-            txtReturnCause.Size = new System.Drawing.Size(526, 68);
+            txtReturnCause.Size = new System.Drawing.Size(518, 64);
             txtReturnCause.TabIndex = 16;
             // 
             // txtBranch
@@ -526,16 +532,16 @@ namespace RMA2021
             txtBranch.BackColor = System.Drawing.Color.AntiqueWhite;
             txtBranch.FormattingEnabled = true;
             txtBranch.Items.AddRange(new object[] { "外銷", "台灣", "蘇州", "黃江", "石碣", "昆山", "歐博" });
-            txtBranch.Location = new System.Drawing.Point(145, 74);
-            txtBranch.Margin = new System.Windows.Forms.Padding(5);
+            txtBranch.Location = new System.Drawing.Point(145, 117);
+            txtBranch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtBranch.Name = "txtBranch";
-            txtBranch.Size = new System.Drawing.Size(200, 45);
+            txtBranch.Size = new System.Drawing.Size(182, 45);
             txtBranch.TabIndex = 5;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(5, 426);
+            label13.Location = new System.Drawing.Point(9, 483);
             label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(133, 37);
@@ -545,7 +551,7 @@ namespace RMA2021
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(462, 135);
+            label9.Location = new System.Drawing.Point(457, 181);
             label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(104, 37);
@@ -555,7 +561,7 @@ namespace RMA2021
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(350, 83);
+            label11.Location = new System.Drawing.Point(336, 123);
             label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(133, 37);
@@ -565,7 +571,7 @@ namespace RMA2021
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(0, 83);
+            label8.Location = new System.Drawing.Point(3, 123);
             label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(133, 37);
@@ -575,7 +581,7 @@ namespace RMA2021
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(350, 32);
+            label7.Location = new System.Drawing.Point(341, 63);
             label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(133, 37);
@@ -585,7 +591,7 @@ namespace RMA2021
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(0, 32);
+            label1.Location = new System.Drawing.Point(0, 63);
             label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(145, 37);
@@ -596,7 +602,7 @@ namespace RMA2021
             // 
             label14.AutoSize = true;
             label14.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label14.Location = new System.Drawing.Point(41, 120);
+            label14.Location = new System.Drawing.Point(721, 51);
             label14.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(75, 37);
@@ -606,7 +612,7 @@ namespace RMA2021
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(5, 311);
+            label5.Location = new System.Drawing.Point(13, 366);
             label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(133, 37);
@@ -616,7 +622,7 @@ namespace RMA2021
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(401, 366);
+            label4.Location = new System.Drawing.Point(396, 420);
             label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(75, 37);
@@ -626,7 +632,7 @@ namespace RMA2021
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(50, 366);
+            label10.Location = new System.Drawing.Point(41, 420);
             label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(75, 37);
@@ -636,8 +642,8 @@ namespace RMA2021
             // txtModelName
             // 
             txtModelName.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtModelName.Location = new System.Drawing.Point(145, 192);
-            txtModelName.Margin = new System.Windows.Forms.Padding(5);
+            txtModelName.Location = new System.Drawing.Point(145, 236);
+            txtModelName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtModelName.Name = "txtModelName";
             txtModelName.Size = new System.Drawing.Size(182, 44);
             txtModelName.TabIndex = 12;
@@ -645,8 +651,8 @@ namespace RMA2021
             // txtVer
             // 
             txtVer.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtVer.Location = new System.Drawing.Point(484, 258);
-            txtVer.Margin = new System.Windows.Forms.Padding(5);
+            txtVer.Location = new System.Drawing.Point(481, 299);
+            txtVer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtVer.Name = "txtVer";
             txtVer.Size = new System.Drawing.Size(182, 44);
             txtVer.TabIndex = 13;
@@ -654,8 +660,8 @@ namespace RMA2021
             // txtAccessories
             // 
             txtAccessories.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtAccessories.Location = new System.Drawing.Point(145, 359);
-            txtAccessories.Margin = new System.Windows.Forms.Padding(5);
+            txtAccessories.Location = new System.Drawing.Point(145, 420);
+            txtAccessories.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtAccessories.Name = "txtAccessories";
             txtAccessories.Size = new System.Drawing.Size(200, 44);
             txtAccessories.TabIndex = 9;
@@ -663,8 +669,8 @@ namespace RMA2021
             // txtBoardName
             // 
             txtBoardName.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtBoardName.Location = new System.Drawing.Point(484, 363);
-            txtBoardName.Margin = new System.Windows.Forms.Padding(5);
+            txtBoardName.Location = new System.Drawing.Point(481, 420);
+            txtBoardName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtBoardName.Name = "txtBoardName";
             txtBoardName.Size = new System.Drawing.Size(182, 44);
             txtBoardName.TabIndex = 15;
@@ -674,16 +680,16 @@ namespace RMA2021
             txtRepairOrCal.BackColor = System.Drawing.Color.AntiqueWhite;
             txtRepairOrCal.FormattingEnabled = true;
             txtRepairOrCal.Items.AddRange(new object[] { "維修", "校驗" });
-            txtRepairOrCal.Location = new System.Drawing.Point(145, 20);
-            txtRepairOrCal.Margin = new System.Windows.Forms.Padding(5);
+            txtRepairOrCal.Location = new System.Drawing.Point(145, 58);
+            txtRepairOrCal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtRepairOrCal.Name = "txtRepairOrCal";
-            txtRepairOrCal.Size = new System.Drawing.Size(200, 45);
+            txtRepairOrCal.Size = new System.Drawing.Size(182, 45);
             txtRepairOrCal.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(0, 258);
+            label2.Location = new System.Drawing.Point(3, 299);
             label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(145, 37);
@@ -693,7 +699,7 @@ namespace RMA2021
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(350, 311);
+            label6.Location = new System.Drawing.Point(350, 366);
             label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(133, 37);
@@ -703,7 +709,7 @@ namespace RMA2021
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(399, 258);
+            label12.Location = new System.Drawing.Point(396, 299);
             label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(75, 37);
@@ -713,7 +719,7 @@ namespace RMA2021
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(22, 196);
+            label3.Location = new System.Drawing.Point(20, 241);
             label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(104, 37);
@@ -725,8 +731,8 @@ namespace RMA2021
             txtFinishOrSemi.BackColor = System.Drawing.Color.AntiqueWhite;
             txtFinishOrSemi.FormattingEnabled = true;
             txtFinishOrSemi.Items.AddRange(new object[] { "成品", "半成品" });
-            txtFinishOrSemi.Location = new System.Drawing.Point(145, 255);
-            txtFinishOrSemi.Margin = new System.Windows.Forms.Padding(5);
+            txtFinishOrSemi.Location = new System.Drawing.Point(145, 299);
+            txtFinishOrSemi.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtFinishOrSemi.Name = "txtFinishOrSemi";
             txtFinishOrSemi.Size = new System.Drawing.Size(200, 45);
             txtFinishOrSemi.TabIndex = 7;
@@ -734,8 +740,8 @@ namespace RMA2021
             // txtFinishSN
             // 
             txtFinishSN.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtFinishSN.Location = new System.Drawing.Point(145, 310);
-            txtFinishSN.Margin = new System.Windows.Forms.Padding(5);
+            txtFinishSN.Location = new System.Drawing.Point(145, 362);
+            txtFinishSN.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtFinishSN.Name = "txtFinishSN";
             txtFinishSN.Size = new System.Drawing.Size(200, 44);
             txtFinishSN.TabIndex = 8;
@@ -743,8 +749,8 @@ namespace RMA2021
             // txtSemiSN
             // 
             txtSemiSN.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtSemiSN.Location = new System.Drawing.Point(484, 311);
-            txtSemiSN.Margin = new System.Windows.Forms.Padding(5);
+            txtSemiSN.Location = new System.Drawing.Point(481, 362);
+            txtSemiSN.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtSemiSN.Name = "txtSemiSN";
             txtSemiSN.Size = new System.Drawing.Size(182, 44);
             txtSemiSN.TabIndex = 14;
@@ -754,8 +760,8 @@ namespace RMA2021
             txtStatus.BackColor = System.Drawing.SystemColors.ActiveCaption;
             txtStatus.Enabled = false;
             txtStatus.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtStatus.Location = new System.Drawing.Point(163, 120);
-            txtStatus.Margin = new System.Windows.Forms.Padding(5);
+            txtStatus.Location = new System.Drawing.Point(847, 46);
+            txtStatus.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtStatus.Name = "txtStatus";
             txtStatus.Size = new System.Drawing.Size(131, 44);
             txtStatus.TabIndex = 55;
@@ -763,6 +769,7 @@ namespace RMA2021
             // groupBox1
             // 
             groupBox1.Controls.Add(label31);
+            groupBox1.Controls.Add(txtWarranty);
             groupBox1.Controls.Add(label30);
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(txtOldFixed2);
@@ -802,11 +809,11 @@ namespace RMA2021
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBox1.Location = new System.Drawing.Point(19, 173);
-            groupBox1.Margin = new System.Windows.Forms.Padding(5);
+            groupBox1.Location = new System.Drawing.Point(5, 34);
+            groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            groupBox1.Size = new System.Drawing.Size(682, 730);
+            groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            groupBox1.Size = new System.Drawing.Size(677, 866);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "資料區";
@@ -814,17 +821,28 @@ namespace RMA2021
             // label31
             // 
             label31.AutoSize = true;
-            label31.Location = new System.Drawing.Point(350, 199);
+            label31.Location = new System.Drawing.Point(350, 241);
             label31.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label31.Name = "label31";
             label31.Size = new System.Drawing.Size(133, 37);
             label31.TabIndex = 25;
             label31.Text = "使用電壓";
             // 
+            // txtWarranty
+            // 
+            txtWarranty.BackColor = System.Drawing.SystemColors.Info;
+            txtWarranty.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtWarranty.Location = new System.Drawing.Point(556, 176);
+            txtWarranty.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            txtWarranty.Name = "txtWarranty";
+            txtWarranty.ReadOnly = true;
+            txtWarranty.Size = new System.Drawing.Size(106, 44);
+            txtWarranty.TabIndex = 61;
+            // 
             // label30
             // 
             label30.AutoSize = true;
-            label30.Location = new System.Drawing.Point(22, 133);
+            label30.Location = new System.Drawing.Point(22, 189);
             label30.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label30.Name = "label30";
             label30.Size = new System.Drawing.Size(104, 37);
@@ -833,7 +851,7 @@ namespace RMA2021
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new System.Drawing.Point(145, 132);
+            dateTimePicker1.Location = new System.Drawing.Point(145, 179);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new System.Drawing.Size(303, 44);
             dateTimePicker1.TabIndex = 23;
@@ -842,27 +860,27 @@ namespace RMA2021
             // txtOldFixed2
             // 
             txtOldFixed2.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtOldFixed2.Location = new System.Drawing.Point(145, 535);
-            txtOldFixed2.Margin = new System.Windows.Forms.Padding(5);
+            txtOldFixed2.Location = new System.Drawing.Point(145, 603);
+            txtOldFixed2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtOldFixed2.Multiline = true;
             txtOldFixed2.Name = "txtOldFixed2";
-            txtOldFixed2.Size = new System.Drawing.Size(526, 38);
+            txtOldFixed2.Size = new System.Drawing.Size(518, 38);
             txtOldFixed2.TabIndex = 22;
             // 
             // textBoxFaultCause
             // 
             textBoxFaultCause.BackColor = System.Drawing.Color.AntiqueWhite;
-            textBoxFaultCause.Location = new System.Drawing.Point(145, 491);
-            textBoxFaultCause.Margin = new System.Windows.Forms.Padding(5);
+            textBoxFaultCause.Location = new System.Drawing.Point(145, 554);
+            textBoxFaultCause.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             textBoxFaultCause.Multiline = true;
             textBoxFaultCause.Name = "textBoxFaultCause";
-            textBoxFaultCause.Size = new System.Drawing.Size(526, 38);
+            textBoxFaultCause.Size = new System.Drawing.Size(518, 38);
             textBoxFaultCause.TabIndex = 21;
             // 
             // label29
             // 
             label29.AutoSize = true;
-            label29.Location = new System.Drawing.Point(9, 538);
+            label29.Location = new System.Drawing.Point(13, 603);
             label29.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label29.Name = "label29";
             label29.Size = new System.Drawing.Size(133, 37);
@@ -872,7 +890,7 @@ namespace RMA2021
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new System.Drawing.Point(9, 491);
+            label28.Location = new System.Drawing.Point(20, 554);
             label28.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label28.Name = "label28";
             label28.Size = new System.Drawing.Size(104, 37);
@@ -881,7 +899,7 @@ namespace RMA2021
             // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(8, 652);
+            button1.Location = new System.Drawing.Point(22, 762);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(149, 71);
             button1.TabIndex = 19;
@@ -892,17 +910,17 @@ namespace RMA2021
             // txtFinishMark
             // 
             txtFinishMark.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtFinishMark.Location = new System.Drawing.Point(145, 586);
-            txtFinishMark.Margin = new System.Windows.Forms.Padding(5);
+            txtFinishMark.Location = new System.Drawing.Point(145, 652);
+            txtFinishMark.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtFinishMark.Multiline = true;
             txtFinishMark.Name = "txtFinishMark";
-            txtFinishMark.Size = new System.Drawing.Size(526, 58);
+            txtFinishMark.Size = new System.Drawing.Size(518, 99);
             txtFinishMark.TabIndex = 18;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new System.Drawing.Point(8, 592);
+            label19.Location = new System.Drawing.Point(9, 656);
             label19.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label19.Name = "label19";
             label19.Size = new System.Drawing.Size(133, 37);
@@ -914,8 +932,8 @@ namespace RMA2021
             textVolt.BackColor = System.Drawing.Color.AntiqueWhite;
             textVolt.FormattingEnabled = true;
             textVolt.Items.AddRange(new object[] { "220V", "110V" });
-            textVolt.Location = new System.Drawing.Point(486, 193);
-            textVolt.Margin = new System.Windows.Forms.Padding(5);
+            textVolt.Location = new System.Drawing.Point(481, 236);
+            textVolt.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             textVolt.Name = "textVolt";
             textVolt.Size = new System.Drawing.Size(182, 45);
             textVolt.TabIndex = 6;
@@ -933,7 +951,7 @@ namespace RMA2021
             // txtUserID
             // 
             txtUserID.Location = new System.Drawing.Point(141, 40);
-            txtUserID.Margin = new System.Windows.Forms.Padding(5);
+            txtUserID.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtUserID.Name = "txtUserID";
             txtUserID.Size = new System.Drawing.Size(145, 44);
             txtUserID.TabIndex = 1;
@@ -951,7 +969,7 @@ namespace RMA2021
             // txtPassword
             // 
             txtPassword.Location = new System.Drawing.Point(372, 40);
-            txtPassword.Margin = new System.Windows.Forms.Padding(5);
+            txtPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new System.Drawing.Size(163, 44);
@@ -961,7 +979,7 @@ namespace RMA2021
             // btnLogin
             // 
             btnLogin.Location = new System.Drawing.Point(547, 40);
-            btnLogin.Margin = new System.Windows.Forms.Padding(5);
+            btnLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new System.Drawing.Size(119, 52);
             btnLogin.TabIndex = 3;
@@ -973,7 +991,7 @@ namespace RMA2021
             // 
             label18.AutoSize = true;
             label18.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label18.Location = new System.Drawing.Point(355, 126);
+            label18.Location = new System.Drawing.Point(1017, 51);
             label18.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label18.Name = "label18";
             label18.Size = new System.Drawing.Size(133, 37);
@@ -989,9 +1007,9 @@ namespace RMA2021
             groupBox2.Controls.Add(label15);
             groupBox2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             groupBox2.Location = new System.Drawing.Point(19, 6);
-            groupBox2.Margin = new System.Windows.Forms.Padding(5);
+            groupBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new System.Windows.Forms.Padding(5);
+            groupBox2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             groupBox2.Size = new System.Drawing.Size(676, 107);
             groupBox2.TabIndex = 57;
             groupBox2.TabStop = false;
@@ -1028,7 +1046,7 @@ namespace RMA2021
             // 
             label26.AutoSize = true;
             label26.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label26.Location = new System.Drawing.Point(1103, 23);
+            label26.Location = new System.Drawing.Point(1073, 11);
             label26.Name = "label26";
             label26.Size = new System.Drawing.Size(92, 25);
             label26.TabIndex = 23;
@@ -1038,7 +1056,7 @@ namespace RMA2021
             // 
             textBoxtoday.BackColor = System.Drawing.Color.Yellow;
             textBoxtoday.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBoxtoday.Location = new System.Drawing.Point(1106, 51);
+            textBoxtoday.Location = new System.Drawing.Point(1100, 41);
             textBoxtoday.Name = "textBoxtoday";
             textBoxtoday.Size = new System.Drawing.Size(72, 43);
             textBoxtoday.TabIndex = 22;
@@ -1047,7 +1065,7 @@ namespace RMA2021
             // 
             label25.AutoSize = true;
             label25.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label25.Location = new System.Drawing.Point(1103, 94);
+            label25.Location = new System.Drawing.Point(1073, 87);
             label25.Name = "label25";
             label25.Size = new System.Drawing.Size(92, 25);
             label25.TabIndex = 21;
@@ -1107,7 +1125,7 @@ namespace RMA2021
             // 
             textBox51.BackColor = System.Drawing.Color.Yellow;
             textBox51.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox51.Location = new System.Drawing.Point(1106, 123);
+            textBox51.Location = new System.Drawing.Point(1100, 118);
             textBox51.Name = "textBox51";
             textBox51.Size = new System.Drawing.Size(72, 43);
             textBox51.TabIndex = 15;
@@ -1192,7 +1210,7 @@ namespace RMA2021
             // 
             txtUserNameShow.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtUserNameShow.FormattingEnabled = true;
-            txtUserNameShow.Location = new System.Drawing.Point(500, 126);
+            txtUserNameShow.Location = new System.Drawing.Point(1177, 46);
             txtUserNameShow.Name = "txtUserNameShow";
             txtUserNameShow.Size = new System.Drawing.Size(186, 44);
             txtUserNameShow.TabIndex = 59;
@@ -1203,7 +1221,7 @@ namespace RMA2021
             料號查詢.Controls.Add(tabPage6);
             料號查詢.Controls.Add(tabPage7);
             料號查詢.Controls.Add(tabPage11);
-            料號查詢.Location = new System.Drawing.Point(709, 12);
+            料號查詢.Location = new System.Drawing.Point(685, 6);
             料號查詢.Name = "料號查詢";
             料號查詢.SelectedIndex = 0;
             料號查詢.Size = new System.Drawing.Size(1204, 894);
@@ -1216,7 +1234,7 @@ namespace RMA2021
             tabPage6.Controls.Add(tabControl1);
             tabPage6.Location = new System.Drawing.Point(4, 32);
             tabPage6.Name = "tabPage6";
-            tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             tabPage6.Size = new System.Drawing.Size(1196, 858);
             tabPage6.TabIndex = 0;
             tabPage6.Text = "RMA";
@@ -1227,7 +1245,7 @@ namespace RMA2021
             tabPage7.Controls.Add(tabControl3);
             tabPage7.Location = new System.Drawing.Point(4, 32);
             tabPage7.Name = "tabPage7";
-            tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            tabPage7.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             tabPage7.Size = new System.Drawing.Size(1196, 858);
             tabPage7.TabIndex = 1;
             tabPage7.Text = "廠內維修";
@@ -1240,7 +1258,7 @@ namespace RMA2021
             tabControl3.Controls.Add(tabPage10);
             tabControl3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             tabControl3.Location = new System.Drawing.Point(5, 6);
-            tabControl3.Margin = new System.Windows.Forms.Padding(5);
+            tabControl3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabControl3.Name = "tabControl3";
             tabControl3.SelectedIndex = 0;
             tabControl3.Size = new System.Drawing.Size(1182, 843);
@@ -1254,9 +1272,9 @@ namespace RMA2021
             tabPage8.Controls.Add(label27);
             tabPage8.Controls.Add(textFactoryFixed);
             tabPage8.Location = new System.Drawing.Point(4, 46);
-            tabPage8.Margin = new System.Windows.Forms.Padding(5);
+            tabPage8.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage8.Name = "tabPage8";
-            tabPage8.Padding = new System.Windows.Forms.Padding(5);
+            tabPage8.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage8.Size = new System.Drawing.Size(1174, 793);
             tabPage8.TabIndex = 0;
             tabPage8.Text = "待維修";
@@ -1264,7 +1282,7 @@ namespace RMA2021
             // BTNDeadLine
             // 
             BTNDeadLine.Location = new System.Drawing.Point(963, 14);
-            BTNDeadLine.Margin = new System.Windows.Forms.Padding(5);
+            BTNDeadLine.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             BTNDeadLine.Name = "BTNDeadLine";
             BTNDeadLine.Size = new System.Drawing.Size(149, 54);
             BTNDeadLine.TabIndex = 18;
@@ -1275,7 +1293,7 @@ namespace RMA2021
             // BtnFactoryFixed
             // 
             BtnFactoryFixed.Location = new System.Drawing.Point(577, 11);
-            BtnFactoryFixed.Margin = new System.Windows.Forms.Padding(5);
+            BtnFactoryFixed.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             BtnFactoryFixed.Name = "BtnFactoryFixed";
             BtnFactoryFixed.Size = new System.Drawing.Size(171, 58);
             BtnFactoryFixed.TabIndex = 17;
@@ -1288,7 +1306,7 @@ namespace RMA2021
             DGVFactoryRepair.AllowUserToAddRows = false;
             DGVFactoryRepair.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGVFactoryRepair.Location = new System.Drawing.Point(6, 84);
-            DGVFactoryRepair.Margin = new System.Windows.Forms.Padding(5);
+            DGVFactoryRepair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             DGVFactoryRepair.Name = "DGVFactoryRepair";
             DGVFactoryRepair.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             DGVFactoryRepair.RowTemplate.Height = 25;
@@ -1311,7 +1329,7 @@ namespace RMA2021
             // 
             textFactoryFixed.BackColor = System.Drawing.Color.SeaShell;
             textFactoryFixed.Location = new System.Drawing.Point(168, 25);
-            textFactoryFixed.Margin = new System.Windows.Forms.Padding(5);
+            textFactoryFixed.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             textFactoryFixed.Multiline = true;
             textFactoryFixed.Name = "textFactoryFixed";
             textFactoryFixed.Size = new System.Drawing.Size(365, 41);
@@ -1321,9 +1339,9 @@ namespace RMA2021
             // 
             tabPage9.Controls.Add(DGVFactoryFixed);
             tabPage9.Location = new System.Drawing.Point(4, 46);
-            tabPage9.Margin = new System.Windows.Forms.Padding(5);
+            tabPage9.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage9.Name = "tabPage9";
-            tabPage9.Padding = new System.Windows.Forms.Padding(5);
+            tabPage9.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             tabPage9.Size = new System.Drawing.Size(1174, 793);
             tabPage9.TabIndex = 2;
             tabPage9.Text = "維修完成";
@@ -1333,7 +1351,7 @@ namespace RMA2021
             DGVFactoryFixed.AllowUserToAddRows = false;
             DGVFactoryFixed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGVFactoryFixed.Location = new System.Drawing.Point(5, 72);
-            DGVFactoryFixed.Margin = new System.Windows.Forms.Padding(5);
+            DGVFactoryFixed.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             DGVFactoryFixed.Name = "DGVFactoryFixed";
             DGVFactoryFixed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             DGVFactoryFixed.RowTemplate.Height = 25;
@@ -1351,7 +1369,7 @@ namespace RMA2021
             tabPage10.Controls.Add(txtFactoryQuery);
             tabPage10.Location = new System.Drawing.Point(4, 46);
             tabPage10.Name = "tabPage10";
-            tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            tabPage10.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             tabPage10.Size = new System.Drawing.Size(1174, 793);
             tabPage10.TabIndex = 3;
             tabPage10.Text = "查詢";
@@ -1361,7 +1379,7 @@ namespace RMA2021
             dataGridViewFactoryQuery.AllowUserToAddRows = false;
             dataGridViewFactoryQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewFactoryQuery.Location = new System.Drawing.Point(9, 78);
-            dataGridViewFactoryQuery.Margin = new System.Windows.Forms.Padding(5);
+            dataGridViewFactoryQuery.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             dataGridViewFactoryQuery.Name = "dataGridViewFactoryQuery";
             dataGridViewFactoryQuery.RowHeadersWidth = 62;
             dataGridViewFactoryQuery.RowTemplate.Height = 25;
@@ -1408,7 +1426,7 @@ namespace RMA2021
             tabPage11.Controls.Add(dataGridViewItemsQuery);
             tabPage11.Location = new System.Drawing.Point(4, 32);
             tabPage11.Name = "tabPage11";
-            tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            tabPage11.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             tabPage11.Size = new System.Drawing.Size(1196, 858);
             tabPage11.TabIndex = 2;
             tabPage11.Text = "ERP查詢";
@@ -1486,7 +1504,7 @@ namespace RMA2021
             dataGridViewItemsQuery.AllowUserToAddRows = false;
             dataGridViewItemsQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewItemsQuery.Location = new System.Drawing.Point(5, 78);
-            dataGridViewItemsQuery.Margin = new System.Windows.Forms.Padding(5);
+            dataGridViewItemsQuery.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             dataGridViewItemsQuery.Name = "dataGridViewItemsQuery";
             dataGridViewItemsQuery.RowHeadersWidth = 62;
             dataGridViewItemsQuery.RowTemplate.Height = 25;
@@ -1503,39 +1521,69 @@ namespace RMA2021
             button4.Text = "再送修";
             button4.UseVisualStyleBackColor = true;
             // 
-            // txtWarranty
-            // 
-            txtWarranty.BackColor = System.Drawing.SystemColors.Info;
-            txtWarranty.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtWarranty.Location = new System.Drawing.Point(581, 310);
-            txtWarranty.Margin = new System.Windows.Forms.Padding(5);
-            txtWarranty.Name = "txtWarranty";
-            txtWarranty.ReadOnly = true;
-            txtWarranty.Size = new System.Drawing.Size(106, 44);
-            txtWarranty.TabIndex = 61;
-            // 
             // timer1
             // 
             timer1.Interval = 5000;
             timer1.Tick += timer1_Tick_1;
             // 
+            // tabFunc
+            // 
+            tabFunc.Controls.Add(tabPage12);
+            tabFunc.Controls.Add(tabPage13);
+            tabFunc.Location = new System.Drawing.Point(19, 121);
+            tabFunc.Name = "tabFunc";
+            tabFunc.SelectedIndex = 0;
+            tabFunc.Size = new System.Drawing.Size(1905, 952);
+            tabFunc.TabIndex = 62;
+            // 
+            // tabPage12
+            // 
+            tabPage12.Controls.Add(料號查詢);
+            tabPage12.Controls.Add(groupBox1);
+            tabPage12.Location = new System.Drawing.Point(4, 32);
+            tabPage12.Name = "tabPage12";
+            tabPage12.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            tabPage12.Size = new System.Drawing.Size(1897, 916);
+            tabPage12.TabIndex = 0;
+            tabPage12.Text = "RMA";
+            tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // tabPage13
+            // 
+            tabPage13.Location = new System.Drawing.Point(4, 32);
+            tabPage13.Name = "tabPage13";
+            tabPage13.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            tabPage13.Size = new System.Drawing.Size(1897, 916);
+            tabPage13.TabIndex = 1;
+            tabPage13.Text = "客訴單";
+            tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new System.Drawing.Point(1450, 62);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new System.Drawing.Size(96, 23);
+            linkLabel1.TabIndex = 63;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "linkLabel1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1928, 918);
-            Controls.Add(txtWarranty);
-            Controls.Add(料號查詢);
+            ClientSize = new System.Drawing.Size(1927, 1083);
+            Controls.Add(linkLabel1);
+            Controls.Add(tabFunc);
             Controls.Add(txtUserNameShow);
             Controls.Add(txtStatus);
             Controls.Add(groupBox2);
             Controls.Add(label18);
-            Controls.Add(groupBox1);
             Controls.Add(label14);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Margin = new System.Windows.Forms.Padding(5);
+            Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             Name = "Form1";
-            Text = "RMA  V3.2免安裝版";
+            Text = "RMA  V3.3免安裝版";
             Load += Form1_Load;
             DoubleClick += dgvBook_DoubleClick;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -1572,6 +1620,8 @@ namespace RMA2021
             tabPage11.ResumeLayout(false);
             tabPage11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewItemsQuery).EndInit();
+            tabFunc.ResumeLayout(false);
+            tabPage12.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1700,6 +1750,10 @@ namespace RMA2021
         private System.Windows.Forms.Label labelCOUNT;
         private System.Windows.Forms.Button BTNDeadLine;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TabControl tabFunc;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
