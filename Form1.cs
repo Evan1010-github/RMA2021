@@ -8,6 +8,7 @@ using OfficeOpenXml;
 using System.Drawing.Printing;
 using System.Data.SqlClient;
 using RMA2021.Properties;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace RMA2021
 {
@@ -30,7 +31,9 @@ namespace RMA2021
             dataGridView2.Enabled = false;
             dataGridView3.Enabled = false;
             dataGridView4.Enabled = false;
-            groupBox1.Enabled = false;
+            DGVcom.Enabled = false;
+            groupBoxRMA.Enabled = false;
+            groupBoxCom.Enabled = false;
             txtFixed.Enabled = false;
             textFactoryFixed.Enabled = false;
             textFactoryFixed.Enabled = false;
@@ -63,8 +66,14 @@ namespace RMA2021
             toolTip.SetToolTip(this.txtWarranty, "自動依建單時輸入的出貨日，以一年內計算");
             BTNDeadLine.Enabled = false;
             Clear();
+            ClearCOM();
             GridFill();
             softUpdateCheck();
+            radioButton1.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
+            radioButton2.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
+            radioButton3.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
+            radioButton4.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
+            radioButton5.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             this.ActiveControl = txtUserID;
         }
         private void softUpdateCheck()
@@ -1029,7 +1038,8 @@ namespace RMA2021
             dataGridView2.Enabled = false;
             dataGridView3.Enabled = false;
             dataGridView4.Enabled = false;
-            groupBox1.Enabled = false;
+            groupBoxRMA.Enabled = false;
+            groupBoxCom.Enabled = false;
             txtFixed.Enabled = false;
             textFactoryFixed.Enabled = false;
             btnRepairFinish.Enabled = false;
@@ -1041,7 +1051,9 @@ namespace RMA2021
             btnFQCFinish.Enabled = false;
             btnFQCSentTest.Enabled = false;
             btnSave.Enabled = false;
+            btnComSave.Enabled = false;
             btnDelete.Enabled = false;
+            btnComDelete.Enabled = false;
             // string cs1 = @"server=localhost;userid=root;password=1010;database=rma";
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             string[] space1 = new string[5];
@@ -1110,7 +1122,10 @@ namespace RMA2021
                                     txtUserNameShow.Text = txtBulidPerson;
                                     MessageBox.Show("登入為" + txtBulidPerson);
                                     btnSave.Enabled = true;
-                                    groupBox1.Enabled = true;
+                                    btnComSave.Enabled = true;
+                                    groupBoxRMA.Enabled = true;
+                                    groupBoxCom.Enabled = true;
+                                    DGVcom.Enabled = true;
                                     PlayRole = "sales";
                                     break;
                                 case "eng":
@@ -1139,9 +1154,11 @@ namespace RMA2021
                                     txtUserNameShow.Text = txtRepairPerson;
                                     MessageBox.Show("登入為" + txtRepairPerson);
                                     btnSave.Enabled = false;
+                                    btnComSave.Enabled = false;
                                     txtFixed.Enabled = true;
                                     textFactoryFixed.Enabled = true;
-                                    groupBox1.Enabled = false;
+                                    groupBoxRMA.Enabled = false;
+                                    groupBoxCom.Enabled = false;
                                     PlayRole = "eng";
                                     //                              warning = true;//支援
                                     //                               timer1.Enabled = true;
@@ -1168,7 +1185,10 @@ namespace RMA2021
                                     txtUserNameShow.Text = txtCalPerson;
                                     MessageBox.Show("登入為" + txtCalPerson);
                                     btnSave.Enabled = false;
-                                    groupBox1.Enabled = false;
+                                    btnComSave.Enabled = false;
+                                    groupBoxRMA.Enabled = false;
+                                    groupBoxCom.Enabled = false;
+
                                     PlayRole = "test";
                                     break;
                                 case "FQC":
@@ -1193,7 +1213,10 @@ namespace RMA2021
                                     txtUserNameShow.Text = txtFQCPerson;
                                     MessageBox.Show("登入為" + txtFQCPerson);
                                     btnSave.Enabled = false;
-                                    groupBox1.Enabled = false;
+                                    btnComSave.Enabled = true;
+                                    groupBoxRMA.Enabled = false;
+                                    groupBoxCom.Enabled = true;
+                                    DGVcom.Enabled = true;
                                     PlayRole = "FQC";
                                     break;
                                 case "MA":
@@ -1904,6 +1927,87 @@ namespace RMA2021
             // 讀取使用者名稱和密碼從設定值
             txtUserID.Text = Properties.Settings.Default.UserName;
             txtPassword.Text = Properties.Settings.Default.Password;
+        }
+
+        private void tabFunc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridFillCOM();//客訴頁面
+        }
+        void GridFillCOM()
+        {
+            string SQLWord = "";
+            if (radioButton1.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 後續追蹤狀況='待後續追蹤'"; }
+            if (radioButton5.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 後續追蹤狀況='已完成'"; }
+            try
+            {
+                using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
+                {
+                    mysqlCon.Open();
+                    MySqlDataAdapter sqlDa = new MySqlDataAdapter(SQLWord, mysqlCon);
+                    System.Data.DataTable dtblBook = new System.Data.DataTable();
+                    sqlDa.Fill(dtblBook);
+                    DGVcom.DataSource = dtblBook;
+                    DGVcom.DefaultCellStyle.ForeColor = Color.Blue;
+                    DGVcom.DefaultCellStyle.BackColor = Color.Beige;
+                    DGVcom.Columns[0].Visible = false;//流水號ID
+                    //DGVcom.Columns[1].Visible = false;//
+
+                    //DGVcom.Columns[8].Visible = false;//送件據點txtBranch
+                    //DGVcom.Columns[9].Visible = false;//所屬業務txtSales
+                    //DGVcom.Columns[10].Visible = false;//保固內txtWarranty
+                    //                                   // DGVcom.Columns[11].Visible = false;//客戶名txtClient
+                    //DGVcom.Columns[12].Visible = false;//配件txtAccessories
+                    //DGVcom.Columns[13].Visible = false;//版本txtVer
+
+                    
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("SQL SERVER連線異常!!!");
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //mysqlCon.Close();
+            }
+        }
+        // 当单选按钮的选中状态改变时，会触发这个事件处理器
+        void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton radioButton = sender as RadioButton;
+
+            if (radioButton == null)
+            {
+                MessageBox.Show("Error in radioButton_CheckedChanged");
+                return;
+            }
+
+            if (radioButton.Checked)
+            {
+                GridFillCOM();//客訴頁面
+            }
+        }
+
+        private void btnComCancel_Click(object sender, EventArgs e)
+        {
+            btnComSave.Enabled = true;
+            btnComSave.Text = "輸入";
+            ClearCOM();
+            GridFillCOM();
+        }
+        void ClearCOM()
+        {
+            txtComNumber.Text = ""; txtComModel.Text = ""; dateTimePickerCom.Format = DateTimePickerFormat.Custom; dateTimePickerCom.CustomFormat = " ";
+            txtComCustomer.Text = ""; CBComWarranty.Text = ""; txtComAppearance.Text = ""; CBComAppearanceSort.Text = "";
+            txtComCause.Text = ""; CBComCasueSort.Text = ""; txtImprovement.Text = ""; txtComPerson.Text = ""; CBComDepartment.Text = "";
+            dateTimePickerComFinish.Format = DateTimePickerFormat.Custom; dateTimePickerComFinish.CustomFormat = " ";
+
+            //   bookID = 0;
+            btnComSave.Text = "輸入";
+            txtStatus.Text = "";
+            txtUserNameShow.Enabled = false;
+            txtUserNameShow.Items.Clear();
         }
     }
 }
