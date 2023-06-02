@@ -17,6 +17,7 @@ namespace RMA2021
         // string connectionString = @"server=localhost;userid=root;password=1010;database=rma";
         private readonly string connectionString = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
         int bookID = 0;
+        int bookComID = 0;
         string txtBulidDate = "";
         string txtBulidPerson = "";
         string txtRepairPerson = "";
@@ -73,7 +74,6 @@ namespace RMA2021
             radioButton2.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             radioButton3.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             radioButton4.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
-            radioButton5.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             this.ActiveControl = txtUserID;
         }
         private void softUpdateCheck()
@@ -1937,7 +1937,9 @@ namespace RMA2021
         {
             string SQLWord = "";
             if (radioButton1.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 後續追蹤狀況='待後續追蹤'"; }
-            if (radioButton5.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 後續追蹤狀況='已完成'"; }
+            if (radioButton4.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 後續追蹤狀況='已完成'"; }
+            if (radioButton2.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 後續追蹤狀況='待確認'"; }
+            if (radioButton3.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 後續追蹤狀況='列入統計追蹤'"; }
             try
             {
                 using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
@@ -1950,7 +1952,7 @@ namespace RMA2021
                     DGVcom.DefaultCellStyle.ForeColor = Color.Blue;
                     DGVcom.DefaultCellStyle.BackColor = Color.Beige;
                     DGVcom.Columns[0].Visible = false;//流水號ID
-                    //DGVcom.Columns[1].Visible = false;//
+                                                      //DGVcom.Columns[1].Visible = false;//
 
                     //DGVcom.Columns[8].Visible = false;//送件據點txtBranch
                     //DGVcom.Columns[9].Visible = false;//所屬業務txtSales
@@ -1959,7 +1961,7 @@ namespace RMA2021
                     //DGVcom.Columns[12].Visible = false;//配件txtAccessories
                     //DGVcom.Columns[13].Visible = false;//版本txtVer
 
-                    
+
                 }
             }
             catch (MySqlException ex)
@@ -2003,11 +2005,80 @@ namespace RMA2021
             txtComCause.Text = ""; CBComCasueSort.Text = ""; txtImprovement.Text = ""; txtComPerson.Text = ""; CBComDepartment.Text = "";
             dateTimePickerComFinish.Format = DateTimePickerFormat.Custom; dateTimePickerComFinish.CustomFormat = " ";
 
-            //   bookID = 0;
+            bookComID = 0;
             btnComSave.Text = "輸入";
             txtStatus.Text = "";
             txtUserNameShow.Enabled = false;
             txtUserNameShow.Items.Clear();
+        }
+
+        private void DGVcom_Click(object sender, EventArgs e)
+        {
+            btnComSave.Enabled = false;
+            btnComDelete.Enabled = false;
+            if (DGVcom.CurrentRow.Index != -1)
+            {
+                DGVcom.Rows[DGVcom.CurrentRow.Index].DefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204);
+                DGVcom.Rows[DGVcom.CurrentRow.Index].DefaultCellStyle.ForeColor = Color.White;
+                bookComID = Convert.ToInt32(DGVcom.CurrentRow.Cells[0].Value.ToString());
+                txtComNumber.Text = DGVcom.CurrentRow.Cells[1].Value.ToString().Substring(10);//microtest-  不show
+              //  dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
+                txtComModel.Text = DGVcom.CurrentRow.Cells[3].Value.ToString();
+                txtComCustomer.Text = DGVcom.CurrentRow.Cells[4].Value.ToString();
+                txtComAppearance.Text = DGVcom.CurrentRow.Cells[5].Value.ToString();
+                CBComAppearanceSort.Text = DGVcom.CurrentRow.Cells[6].Value.ToString();
+                txtComCause.Text = DGVcom.CurrentRow.Cells[7].Value.ToString();
+                CBComCasueSort.Text = DGVcom.CurrentRow.Cells[8].Value.ToString();
+                txtImprovement.Text = DGVcom.CurrentRow.Cells[10].Value.ToString();
+                txtComPerson.Text = DGVcom.CurrentRow.Cells[12].Value.ToString();
+              //  dateTimePickerComFinish.Text = DGVcom.CurrentRow.Cells[13].Value.ToString();
+                CBComDepartment.Text = DGVcom.CurrentRow.Cells[14].Value.ToString();
+
+                //2020/2/8  added
+                if (DGVcom.CurrentRow.Cells[2].Value.ToString() == "" || DGVcom.CurrentRow.Cells[2].Value.ToString() == " ")
+                {
+                    dateTimePickerCom.Format = DateTimePickerFormat.Custom;
+                    dateTimePickerCom.CustomFormat = " ";
+                }
+                else
+                {
+                    dateTimePickerCom.Format = DateTimePickerFormat.Long;
+                    dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
+                }
+                if (DGVcom.CurrentRow.Cells[13].Value.ToString() == "" || DGVcom.CurrentRow.Cells[13].Value.ToString() == " ")
+                {
+                    dateTimePickerComFinish.Format = DateTimePickerFormat.Custom;
+                    dateTimePickerComFinish.CustomFormat = " ";
+                }
+                else
+                {
+                    dateTimePickerComFinish.Format = DateTimePickerFormat.Long;
+                    dateTimePickerComFinish.Text = DGVcom.CurrentRow.Cells[13].Value.ToString();
+                }
+
+            }
+     
+            //if (txtUserNameShow.Text == DGVcom.CurrentRow.Cells[16].Value.ToString())//非本人建立不得修改or delete
+            //{
+            //    btnSave.Text = "更新";
+            //    btnSave.Enabled = true;
+            //    btnDelete.Enabled = true;
+            //}
+            //if (PlayRole == "eng")//維修人員
+            //{
+            //    btnSave.Text = "更新";
+            //    btnSave.Enabled = true;
+            //}
+        }
+
+        private void DGVcom_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+        if (e.RowIndex > -1)
+        {
+            DGVcom.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Beige;
+            DGVcom.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;
+        }
+
         }
     }
 }

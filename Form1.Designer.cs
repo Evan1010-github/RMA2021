@@ -157,7 +157,6 @@ namespace RMA2021
             tabPage12 = new System.Windows.Forms.TabPage();
             tabPage13 = new System.Windows.Forms.TabPage();
             groupBox4 = new System.Windows.Forms.GroupBox();
-            radioButton5 = new System.Windows.Forms.RadioButton();
             radioButton4 = new System.Windows.Forms.RadioButton();
             radioButton3 = new System.Windows.Forms.RadioButton();
             radioButton2 = new System.Windows.Forms.RadioButton();
@@ -1606,7 +1605,6 @@ namespace RMA2021
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(radioButton5);
             groupBox4.Controls.Add(radioButton4);
             groupBox4.Controls.Add(radioButton3);
             groupBox4.Controls.Add(radioButton2);
@@ -1618,44 +1616,34 @@ namespace RMA2021
             groupBox4.TabStop = false;
             groupBox4.Text = "處理狀態";
             // 
-            // radioButton5
-            // 
-            radioButton5.AutoSize = true;
-            radioButton5.Location = new System.Drawing.Point(765, 38);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new System.Drawing.Size(89, 27);
-            radioButton5.TabIndex = 0;
-            radioButton5.Text = "已完成";
-            radioButton5.UseVisualStyleBackColor = true;
-            // 
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new System.Drawing.Point(578, 38);
+            radioButton4.Location = new System.Drawing.Point(765, 38);
             radioButton4.Name = "radioButton4";
-            radioButton4.Size = new System.Drawing.Size(143, 27);
+            radioButton4.Size = new System.Drawing.Size(89, 27);
             radioButton4.TabIndex = 0;
-            radioButton4.Text = "列入統計追蹤";
+            radioButton4.Text = "已完成";
             radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new System.Drawing.Point(398, 38);
+            radioButton3.Location = new System.Drawing.Point(528, 38);
             radioButton3.Name = "radioButton3";
-            radioButton3.Size = new System.Drawing.Size(89, 27);
+            radioButton3.Size = new System.Drawing.Size(143, 27);
             radioButton3.TabIndex = 0;
-            radioButton3.Text = "待確認";
+            radioButton3.Text = "列入統計追蹤";
             radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new System.Drawing.Point(218, 38);
+            radioButton2.Location = new System.Drawing.Point(270, 38);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new System.Drawing.Size(125, 27);
+            radioButton2.Size = new System.Drawing.Size(89, 27);
             radioButton2.TabIndex = 0;
-            radioButton2.Text = "待追蹤後續";
+            radioButton2.Text = "待確認";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
@@ -1681,6 +1669,8 @@ namespace RMA2021
             DGVcom.RowTemplate.Height = 25;
             DGVcom.Size = new System.Drawing.Size(1157, 771);
             DGVcom.TabIndex = 13;
+            DGVcom.CellLeave += DGVcom_CellLeave;
+            DGVcom.Click += DGVcom_Click;
             // 
             // groupBoxCom
             // 
@@ -2253,7 +2243,6 @@ namespace RMA2021
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.DataGridView DGVcom;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
