@@ -1762,6 +1762,7 @@ namespace RMA2021
             btnComSave.TabIndex = 14;
             btnComSave.Text = "Send";
             btnComSave.UseVisualStyleBackColor = true;
+            btnComSave.Click += btnComSave_Click;
             // 
             // label35
             // 
@@ -1787,7 +1788,7 @@ namespace RMA2021
             // 
             CBComDepartment.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComDepartment.FormattingEnabled = true;
-            CBComDepartment.Items.AddRange(new object[] { "成品", "半成品" });
+            CBComDepartment.Items.AddRange(new object[] { "研發部", "工程部", "生產部", "昆山廠", "品管部" });
             CBComDepartment.Location = new System.Drawing.Point(471, 678);
             CBComDepartment.Margin = new System.Windows.Forms.Padding(5);
             CBComDepartment.Name = "CBComDepartment";
@@ -1911,7 +1912,7 @@ namespace RMA2021
             // 
             CBComCasueSort.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComCasueSort.FormattingEnabled = true;
-            CBComCasueSort.Items.AddRange(new object[] { "成品", "半成品" });
+            CBComCasueSort.Items.AddRange(new object[] { "其它", "PCB問題", "元件問題", "軟體問題", "設計問題", "機構問題", "操作問題", "裝配或接線問題" });
             CBComCasueSort.Location = new System.Drawing.Point(196, 514);
             CBComCasueSort.Margin = new System.Windows.Forms.Padding(5);
             CBComCasueSort.Name = "CBComCasueSort";
@@ -1922,7 +1923,7 @@ namespace RMA2021
             // 
             CBComAppearanceSort.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComAppearanceSort.FormattingEnabled = true;
-            CBComAppearanceSort.Items.AddRange(new object[] { "成品", "半成品" });
+            CBComAppearanceSort.Items.AddRange(new object[] { "其它", "無法開機", "顯示問題", "按鍵問題", "配件或包裝問題", "功能或精度問題", "高壓故障", "壽命問題", "燒𣪷或冒煙", "穩定度或抗干擾不足" });
             CBComAppearanceSort.Location = new System.Drawing.Point(192, 350);
             CBComAppearanceSort.Margin = new System.Windows.Forms.Padding(5);
             CBComAppearanceSort.Name = "CBComAppearanceSort";

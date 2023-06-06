@@ -9,6 +9,7 @@ using System.Drawing.Printing;
 using System.Data.SqlClient;
 using RMA2021.Properties;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Net;
 
 namespace RMA2021
 {
@@ -33,6 +34,22 @@ namespace RMA2021
             dataGridView3.Enabled = false;
             dataGridView4.Enabled = false;
             DGVcom.Enabled = false;
+            ///業務才開
+            txtComNumber.Enabled = false;
+            txtComModel.Enabled = false;
+            dateTimePickerCom.Enabled = false;
+            txtComCustomer.Enabled = false;
+            CBComWarranty.Enabled = false;
+            txtComAppearance.Enabled = false;
+            CBComAppearanceSort.Enabled = false;
+            ///FQC才開
+            txtComCause.Enabled = false;
+            CBComCasueSort.Enabled = false;
+            txtImprovement.Enabled = false;
+            txtComPerson.Enabled = false;
+            CBComDepartment.Enabled = false;
+            dateTimePickerComFinish.Enabled = false;
+            ///
             groupBoxRMA.Enabled = false;
             groupBoxCom.Enabled = false;
             txtFixed.Enabled = false;
@@ -1125,7 +1142,23 @@ namespace RMA2021
                                     btnComSave.Enabled = true;
                                     groupBoxRMA.Enabled = true;
                                     groupBoxCom.Enabled = true;
+                                    ///
                                     DGVcom.Enabled = true;
+                                    txtComNumber.Enabled = true;
+                                    txtComModel.Enabled = true;
+                                    dateTimePickerCom.Enabled = true;
+                                    txtComCustomer.Enabled = true;
+                                    CBComWarranty.Enabled = true;
+                                    txtComAppearance.Enabled = true;
+                                    CBComAppearanceSort.Enabled = true;
+                                    ///
+                                    txtComCause.Enabled = false;
+                                    CBComCasueSort.Enabled = false;
+                                    txtImprovement.Enabled = false;
+                                    txtComPerson.Enabled = false;
+                                    CBComDepartment.Enabled = false;
+                                    dateTimePickerComFinish.Enabled = false;
+                                    ///
                                     PlayRole = "sales";
                                     break;
                                 case "eng":
@@ -1216,7 +1249,23 @@ namespace RMA2021
                                     btnComSave.Enabled = true;
                                     groupBoxRMA.Enabled = false;
                                     groupBoxCom.Enabled = true;
+                                    ///
                                     DGVcom.Enabled = true;
+                                    txtComCause.Enabled = true;
+                                    CBComCasueSort.Enabled = true;
+                                    txtImprovement.Enabled = true;
+                                    txtComPerson.Enabled = true;
+                                    CBComDepartment.Enabled = true;
+                                    dateTimePickerComFinish.Enabled = true;
+                                    ///
+                                    txtComNumber.Enabled = false;
+                                    txtComModel.Enabled = false;
+                                    dateTimePickerCom.Enabled = false;
+                                    txtComCustomer.Enabled = false;
+                                    CBComWarranty.Enabled = false;
+                                    txtComAppearance.Enabled = false;
+                                    CBComAppearanceSort.Enabled = false;
+                                    ///
                                     PlayRole = "FQC";
                                     break;
                                 case "MA":
@@ -1954,13 +2003,6 @@ namespace RMA2021
                     DGVcom.Columns[0].Visible = false;//流水號ID
                                                       //DGVcom.Columns[1].Visible = false;//
 
-                    //DGVcom.Columns[8].Visible = false;//送件據點txtBranch
-                    //DGVcom.Columns[9].Visible = false;//所屬業務txtSales
-                    //DGVcom.Columns[10].Visible = false;//保固內txtWarranty
-                    //                                   // DGVcom.Columns[11].Visible = false;//客戶名txtClient
-                    //DGVcom.Columns[12].Visible = false;//配件txtAccessories
-                    //DGVcom.Columns[13].Visible = false;//版本txtVer
-
 
                 }
             }
@@ -2002,7 +2044,7 @@ namespace RMA2021
         {
             txtComNumber.Text = ""; txtComModel.Text = ""; dateTimePickerCom.Format = DateTimePickerFormat.Custom; dateTimePickerCom.CustomFormat = " ";
             txtComCustomer.Text = ""; CBComWarranty.Text = ""; txtComAppearance.Text = ""; CBComAppearanceSort.Text = "";
-            txtComCause.Text = ""; CBComCasueSort.Text = ""; txtImprovement.Text = ""; txtComPerson.Text = ""; CBComDepartment.Text = "";
+            txtComCause.Text = ""; CBComCasueSort.Text = ""; CBComWarranty.Text = ""; txtImprovement.Text = ""; txtComPerson.Text = ""; CBComDepartment.Text = "";
             dateTimePickerComFinish.Format = DateTimePickerFormat.Custom; dateTimePickerComFinish.CustomFormat = " ";
 
             bookComID = 0;
@@ -2021,17 +2063,18 @@ namespace RMA2021
                 DGVcom.Rows[DGVcom.CurrentRow.Index].DefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204);
                 DGVcom.Rows[DGVcom.CurrentRow.Index].DefaultCellStyle.ForeColor = Color.White;
                 bookComID = Convert.ToInt32(DGVcom.CurrentRow.Cells[0].Value.ToString());
-                txtComNumber.Text = DGVcom.CurrentRow.Cells[1].Value.ToString().Substring(10);//microtest-  不show
-              //  dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
+                txtComNumber.Text = DGVcom.CurrentRow.Cells[1].Value.ToString().Substring(10);//microtest-  不show                                                                                             //  dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
                 txtComModel.Text = DGVcom.CurrentRow.Cells[3].Value.ToString();
                 txtComCustomer.Text = DGVcom.CurrentRow.Cells[4].Value.ToString();
                 txtComAppearance.Text = DGVcom.CurrentRow.Cells[5].Value.ToString();
                 CBComAppearanceSort.Text = DGVcom.CurrentRow.Cells[6].Value.ToString();
                 txtComCause.Text = DGVcom.CurrentRow.Cells[7].Value.ToString();
                 CBComCasueSort.Text = DGVcom.CurrentRow.Cells[8].Value.ToString();
+                CBComWarranty.Text = DGVcom.CurrentRow.Cells[9].Value.ToString();
                 txtImprovement.Text = DGVcom.CurrentRow.Cells[10].Value.ToString();
+                txtBulidPerson = DGVcom.CurrentRow.Cells[11].Value.ToString();
                 txtComPerson.Text = DGVcom.CurrentRow.Cells[12].Value.ToString();
-              //  dateTimePickerComFinish.Text = DGVcom.CurrentRow.Cells[13].Value.ToString();
+                //  dateTimePickerComFinish.Text = DGVcom.CurrentRow.Cells[13].Value.ToString();
                 CBComDepartment.Text = DGVcom.CurrentRow.Cells[14].Value.ToString();
 
                 //2020/2/8  added
@@ -2057,28 +2100,104 @@ namespace RMA2021
                 }
 
             }
-     
-            //if (txtUserNameShow.Text == DGVcom.CurrentRow.Cells[16].Value.ToString())//非本人建立不得修改or delete
-            //{
-            //    btnSave.Text = "更新";
-            //    btnSave.Enabled = true;
-            //    btnDelete.Enabled = true;
-            //}
-            //if (PlayRole == "eng")//維修人員
-            //{
-            //    btnSave.Text = "更新";
-            //    btnSave.Enabled = true;
-            //}
+
+            if (txtUserNameShow.Text == DGVcom.CurrentRow.Cells[11].Value.ToString())//非本人建立不得修改or delete
+            {
+                btnComSave.Text = "更新";
+                btnComSave.Enabled = true;
+                btnDelete.Enabled = true;
+            }
+            if (PlayRole == "FQC")//品管
+            {
+                btnComSave.Text = "更新";
+                btnComSave.Enabled = true;
+            }
         }
 
         private void DGVcom_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-        if (e.RowIndex > -1)
-        {
-            DGVcom.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Beige;
-            DGVcom.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;
+            if (e.RowIndex > -1)
+            {
+                DGVcom.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Beige;
+                DGVcom.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;
+            }
+
         }
 
+        private void btnComSave_Click(object sender, EventArgs e)
+        {
+            txtComAppearance.Text = txtComAppearance.Text.Replace("'", "\\'");//2022/11/10 can't 輸入報錯問題
+                                                                              ////SQL  開始write //////////////////////////////////////////////////////////////////////////////////////////////    
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            try
+            {
+                conn.Open();//開啟通道，建立連線，出現異常時,使用try catch語句
+                using var cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                if (bookComID == 0)//新增資料
+                {
+                   // 建單日 = DateTime.Now.ToLocalTime().ToString();//建單日時
+                    cmd.CommandText = $"INSERT INTO rma.CustomerComplaint(客訴編號,客訴日期,機種型號," +
+                      $"客戶名稱,保固,製品問題,問題現象分類,建單日,建單人)" +
+                              "VALUES('" + "MICROTEST-"+txtComNumber.Text + "'" +
+                              ",'" + dateTimePickerCom.Text + "'" +
+                              ",'" + txtComModel.Text + "'" +
+                              ",'" + txtComCustomer.Text + "'" +
+                              ",'" + CBComWarranty.Text + "'" +
+                              ",'" + txtComAppearance.Text + "'" +
+                              ",'" + CBComAppearanceSort.Text + "'" +
+                              ",'" + DateTime.Now.ToLocalTime().ToString() + "'" +  
+                              ",'" + txtBulidPerson + "')";
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("成功輸入資料!");
+                }
+                else//更新資料，只有建立者能更新or刪除
+                {
+                    switch (PlayRole)
+                    {
+                        case "sales":              
+                        cmd.CommandText = "UPDATE rma.CustomerComplaint SET 客訴編號='" + "MICROTEST-" + txtComNumber.Text + "'"+
+                                ",客訴日期='"+ dateTimePickerCom.Text +"'"+
+                                ",機種型號='" + txtComModel.Text+"'"+
+                                ",客戶名稱='" + txtComCustomer.Text + "'" +
+                                ",製品問題='" + txtComAppearance.Text+"'"+
+                                ",保固='" + CBComWarranty.Text + "'" +
+                                ",問題現象分類='" + CBComAppearanceSort.Text+"'"+
+                                ",建單日='" + DateTime.Now.ToLocalTime().ToString() + "'" +
+                                ",建單人='" + txtBulidPerson+"'"+
+                                " WHERE 流水號='" + bookComID + "'";
+                                cmd.ExecuteNonQuery();
+                                conn.Close();
+                            break;
+                        //case "FQC":
+                        //    cmd.CommandText = "UPDATE rma.rmarawdata SET 狀態='" + "待結案" +
+                        //    "',FQC完成日='" + DateTime.Now.ToLocalTime().ToString() +
+                        //    "',FQC人員 ='" + txtFQCPerson +
+                        //     "' WHERE 流水號='" + bookID + "'";
+                        //     cmd.ExecuteNonQuery();
+                        //     conn.Close();
+                        //    break;
+                            default:
+                              conn.Close();
+                            break;
+                    }
+                    MessageBox.Show("成功更新資料!");
+                }
+                ClearCOM();
+                GridFillCOM();//客訴頁面
+
+            }
+            catch (MySqlException ex)
+            {
+              MessageBox.Show("save SERVER連線異常!!!");
+              Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+              conn.Close();
+            }
+            
         }
     }
 }
