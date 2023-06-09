@@ -157,17 +157,21 @@ namespace RMA2021
             tabPage12 = new System.Windows.Forms.TabPage();
             tabPage13 = new System.Windows.Forms.TabPage();
             groupBox4 = new System.Windows.Forms.GroupBox();
+            CBComDateBetween = new System.Windows.Forms.ComboBox();
             radioButton4 = new System.Windows.Forms.RadioButton();
             radioButton3 = new System.Windows.Forms.RadioButton();
             radioButton2 = new System.Windows.Forms.RadioButton();
             radioButton1 = new System.Windows.Forms.RadioButton();
             DGVcom = new System.Windows.Forms.DataGridView();
             groupBoxCom = new System.Windows.Forms.GroupBox();
+            txtComImNow = new System.Windows.Forms.TextBox();
             CBComWarranty = new System.Windows.Forms.ComboBox();
             btnComCancel = new System.Windows.Forms.Button();
-            btnComDelete = new System.Windows.Forms.Button();
+            btnComUpload = new System.Windows.Forms.Button();
             dateTimePickerComFinish = new System.Windows.Forms.DateTimePicker();
             btnComSave = new System.Windows.Forms.Button();
+            label40 = new System.Windows.Forms.Label();
+            label39 = new System.Windows.Forms.Label();
             label35 = new System.Windows.Forms.Label();
             label47 = new System.Windows.Forms.Label();
             CBComDepartment = new System.Windows.Forms.ComboBox();
@@ -183,6 +187,7 @@ namespace RMA2021
             txtComAppearance = new System.Windows.Forms.TextBox();
             txtComPerson = new System.Windows.Forms.TextBox();
             txtComCustomer = new System.Windows.Forms.TextBox();
+            CBComCur = new System.Windows.Forms.ComboBox();
             CBComCasueSort = new System.Windows.Forms.ComboBox();
             CBComAppearanceSort = new System.Windows.Forms.ComboBox();
             label51 = new System.Windows.Forms.Label();
@@ -194,6 +199,7 @@ namespace RMA2021
             label49 = new System.Windows.Forms.Label();
             label50 = new System.Windows.Forms.Label();
             linkLabel1 = new System.Windows.Forms.LinkLabel();
+            openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -1605,21 +1611,32 @@ namespace RMA2021
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(CBComDateBetween);
             groupBox4.Controls.Add(radioButton4);
             groupBox4.Controls.Add(radioButton3);
             groupBox4.Controls.Add(radioButton2);
             groupBox4.Controls.Add(radioButton1);
-            groupBox4.Location = new System.Drawing.Point(698, 8);
+            groupBox4.Location = new System.Drawing.Point(1154, 8);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new System.Drawing.Size(1157, 87);
+            groupBox4.Size = new System.Drawing.Size(701, 87);
             groupBox4.TabIndex = 14;
             groupBox4.TabStop = false;
             groupBox4.Text = "處理狀態";
             // 
+            // CBComDateBetween
+            // 
+            CBComDateBetween.FormattingEnabled = true;
+            CBComDateBetween.Items.AddRange(new object[] { "最近一個月", "最近一季", "最近一年", "所有" });
+            CBComDateBetween.Location = new System.Drawing.Point(485, 37);
+            CBComDateBetween.Name = "CBComDateBetween";
+            CBComDateBetween.Size = new System.Drawing.Size(182, 31);
+            CBComDateBetween.TabIndex = 1;
+            CBComDateBetween.SelectedIndexChanged += CBComDateBetween_SelectedIndexChanged;
+            // 
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new System.Drawing.Point(765, 38);
+            radioButton4.Location = new System.Drawing.Point(372, 38);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new System.Drawing.Size(89, 27);
             radioButton4.TabIndex = 0;
@@ -1629,17 +1646,17 @@ namespace RMA2021
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new System.Drawing.Point(528, 38);
+            radioButton3.Location = new System.Drawing.Point(239, 38);
             radioButton3.Name = "radioButton3";
-            radioButton3.Size = new System.Drawing.Size(143, 27);
+            radioButton3.Size = new System.Drawing.Size(89, 27);
             radioButton3.TabIndex = 0;
-            radioButton3.Text = "列入統計追蹤";
+            radioButton3.Text = "暫停中";
             radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new System.Drawing.Point(270, 38);
+            radioButton2.Location = new System.Drawing.Point(128, 38);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new System.Drawing.Size(89, 27);
             radioButton2.TabIndex = 0;
@@ -1662,23 +1679,26 @@ namespace RMA2021
             // 
             DGVcom.AllowUserToAddRows = false;
             DGVcom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVcom.Location = new System.Drawing.Point(698, 103);
+            DGVcom.Location = new System.Drawing.Point(1154, 103);
             DGVcom.Margin = new System.Windows.Forms.Padding(5);
             DGVcom.Name = "DGVcom";
             DGVcom.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             DGVcom.RowTemplate.Height = 25;
-            DGVcom.Size = new System.Drawing.Size(1157, 771);
+            DGVcom.Size = new System.Drawing.Size(701, 771);
             DGVcom.TabIndex = 13;
             DGVcom.CellLeave += DGVcom_CellLeave;
             DGVcom.Click += DGVcom_Click;
             // 
             // groupBoxCom
             // 
+            groupBoxCom.Controls.Add(txtComImNow);
             groupBoxCom.Controls.Add(CBComWarranty);
             groupBoxCom.Controls.Add(btnComCancel);
-            groupBoxCom.Controls.Add(btnComDelete);
+            groupBoxCom.Controls.Add(btnComUpload);
             groupBoxCom.Controls.Add(dateTimePickerComFinish);
             groupBoxCom.Controls.Add(btnComSave);
+            groupBoxCom.Controls.Add(label40);
+            groupBoxCom.Controls.Add(label39);
             groupBoxCom.Controls.Add(label35);
             groupBoxCom.Controls.Add(label47);
             groupBoxCom.Controls.Add(CBComDepartment);
@@ -1694,6 +1714,7 @@ namespace RMA2021
             groupBoxCom.Controls.Add(txtComAppearance);
             groupBoxCom.Controls.Add(txtComPerson);
             groupBoxCom.Controls.Add(txtComCustomer);
+            groupBoxCom.Controls.Add(CBComCur);
             groupBoxCom.Controls.Add(CBComCasueSort);
             groupBoxCom.Controls.Add(CBComAppearanceSort);
             groupBoxCom.Controls.Add(label51);
@@ -1709,17 +1730,28 @@ namespace RMA2021
             groupBoxCom.Margin = new System.Windows.Forms.Padding(5);
             groupBoxCom.Name = "groupBoxCom";
             groupBoxCom.Padding = new System.Windows.Forms.Padding(5);
-            groupBoxCom.Size = new System.Drawing.Size(677, 866);
+            groupBoxCom.Size = new System.Drawing.Size(1139, 866);
             groupBoxCom.TabIndex = 12;
             groupBoxCom.TabStop = false;
             groupBoxCom.Text = "資料區";
+            // 
+            // txtComImNow
+            // 
+            txtComImNow.BackColor = System.Drawing.Color.AntiqueWhite;
+            txtComImNow.Location = new System.Drawing.Point(145, 453);
+            txtComImNow.Margin = new System.Windows.Forms.Padding(5);
+            txtComImNow.Multiline = true;
+            txtComImNow.Name = "txtComImNow";
+            txtComImNow.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            txtComImNow.Size = new System.Drawing.Size(478, 106);
+            txtComImNow.TabIndex = 25;
             // 
             // CBComWarranty
             // 
             CBComWarranty.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComWarranty.FormattingEnabled = true;
             CBComWarranty.Items.AddRange(new object[] { "是", "否" });
-            CBComWarranty.Location = new System.Drawing.Point(540, 169);
+            CBComWarranty.Location = new System.Drawing.Point(481, 126);
             CBComWarranty.Margin = new System.Windows.Forms.Padding(5);
             CBComWarranty.Name = "CBComWarranty";
             CBComWarranty.Size = new System.Drawing.Size(127, 45);
@@ -1727,7 +1759,7 @@ namespace RMA2021
             // 
             // btnComCancel
             // 
-            btnComCancel.Location = new System.Drawing.Point(522, 785);
+            btnComCancel.Location = new System.Drawing.Point(994, 785);
             btnComCancel.Margin = new System.Windows.Forms.Padding(5);
             btnComCancel.Name = "btnComCancel";
             btnComCancel.Size = new System.Drawing.Size(135, 71);
@@ -1736,26 +1768,27 @@ namespace RMA2021
             btnComCancel.UseVisualStyleBackColor = true;
             btnComCancel.Click += btnComCancel_Click;
             // 
-            // btnComDelete
+            // btnComUpload
             // 
-            btnComDelete.Location = new System.Drawing.Point(362, 785);
-            btnComDelete.Margin = new System.Windows.Forms.Padding(5);
-            btnComDelete.Name = "btnComDelete";
-            btnComDelete.Size = new System.Drawing.Size(135, 71);
-            btnComDelete.TabIndex = 15;
-            btnComDelete.Text = "Delete";
-            btnComDelete.UseVisualStyleBackColor = true;
+            btnComUpload.Location = new System.Drawing.Point(667, 785);
+            btnComUpload.Margin = new System.Windows.Forms.Padding(5);
+            btnComUpload.Name = "btnComUpload";
+            btnComUpload.Size = new System.Drawing.Size(164, 71);
+            btnComUpload.TabIndex = 15;
+            btnComUpload.Text = "上傳附件";
+            btnComUpload.UseVisualStyleBackColor = true;
+            btnComUpload.Click += btnComUpload_Click;
             // 
             // dateTimePickerComFinish
             // 
-            dateTimePickerComFinish.Location = new System.Drawing.Point(196, 733);
+            dateTimePickerComFinish.Location = new System.Drawing.Point(834, 516);
             dateTimePickerComFinish.Name = "dateTimePickerComFinish";
-            dateTimePickerComFinish.Size = new System.Drawing.Size(303, 44);
+            dateTimePickerComFinish.Size = new System.Drawing.Size(294, 44);
             dateTimePickerComFinish.TabIndex = 23;
             // 
             // btnComSave
             // 
-            btnComSave.Location = new System.Drawing.Point(189, 785);
+            btnComSave.Location = new System.Drawing.Point(841, 785);
             btnComSave.Margin = new System.Windows.Forms.Padding(5);
             btnComSave.Name = "btnComSave";
             btnComSave.Size = new System.Drawing.Size(143, 71);
@@ -1764,10 +1797,30 @@ namespace RMA2021
             btnComSave.UseVisualStyleBackColor = true;
             btnComSave.Click += btnComSave_Click;
             // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Location = new System.Drawing.Point(13, 453);
+            label40.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label40.Name = "label40";
+            label40.Size = new System.Drawing.Size(133, 37);
+            label40.TabIndex = 24;
+            label40.Text = "暫時對策";
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new System.Drawing.Point(6, 733);
+            label39.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label39.Name = "label39";
+            label39.Size = new System.Drawing.Size(133, 37);
+            label39.TabIndex = 24;
+            label39.Text = "目前進度";
+            // 
             // label35
             // 
             label35.AutoSize = true;
-            label35.Location = new System.Drawing.Point(23, 739);
+            label35.Location = new System.Drawing.Point(653, 522);
             label35.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label35.Name = "label35";
             label35.Size = new System.Drawing.Size(162, 37);
@@ -1777,7 +1830,7 @@ namespace RMA2021
             // label47
             // 
             label47.AutoSize = true;
-            label47.Location = new System.Drawing.Point(10, 235);
+            label47.Location = new System.Drawing.Point(6, 194);
             label47.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label47.Name = "label47";
             label47.Size = new System.Drawing.Size(133, 37);
@@ -1789,7 +1842,7 @@ namespace RMA2021
             CBComDepartment.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComDepartment.FormattingEnabled = true;
             CBComDepartment.Items.AddRange(new object[] { "研發部", "工程部", "生產部", "昆山廠", "品管部" });
-            CBComDepartment.Location = new System.Drawing.Point(471, 678);
+            CBComDepartment.Location = new System.Drawing.Point(933, 730);
             CBComDepartment.Margin = new System.Windows.Forms.Padding(5);
             CBComDepartment.Name = "CBComDepartment";
             CBComDepartment.Size = new System.Drawing.Size(196, 45);
@@ -1798,7 +1851,7 @@ namespace RMA2021
             // label34
             // 
             label34.AutoSize = true;
-            label34.Location = new System.Drawing.Point(0, 117);
+            label34.Location = new System.Drawing.Point(682, 65);
             label34.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label34.Name = "label34";
             label34.Size = new System.Drawing.Size(133, 37);
@@ -1808,7 +1861,7 @@ namespace RMA2021
             // label43
             // 
             label43.AutoSize = true;
-            label43.Location = new System.Drawing.Point(438, 177);
+            label43.Location = new System.Drawing.Point(355, 134);
             label43.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label43.Name = "label43";
             label43.Size = new System.Drawing.Size(104, 37);
@@ -1817,7 +1870,7 @@ namespace RMA2021
             // 
             // dateTimePickerCom
             // 
-            dateTimePickerCom.Location = new System.Drawing.Point(145, 117);
+            dateTimePickerCom.Location = new System.Drawing.Point(823, 62);
             dateTimePickerCom.Name = "dateTimePickerCom";
             dateTimePickerCom.Size = new System.Drawing.Size(303, 44);
             dateTimePickerCom.TabIndex = 23;
@@ -1825,21 +1878,23 @@ namespace RMA2021
             // txtImprovement
             // 
             txtImprovement.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtImprovement.Location = new System.Drawing.Point(149, 569);
+            txtImprovement.Location = new System.Drawing.Point(145, 569);
             txtImprovement.Margin = new System.Windows.Forms.Padding(5);
             txtImprovement.Multiline = true;
             txtImprovement.Name = "txtImprovement";
-            txtImprovement.Size = new System.Drawing.Size(518, 99);
+            txtImprovement.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            txtImprovement.Size = new System.Drawing.Size(984, 154);
             txtImprovement.TabIndex = 18;
             // 
             // txtComCause
             // 
             txtComCause.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtComCause.Location = new System.Drawing.Point(149, 405);
+            txtComCause.Location = new System.Drawing.Point(145, 341);
             txtComCause.Margin = new System.Windows.Forms.Padding(5);
             txtComCause.Multiline = true;
             txtComCause.Name = "txtComCause";
-            txtComCause.Size = new System.Drawing.Size(518, 99);
+            txtComCause.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            txtComCause.Size = new System.Drawing.Size(984, 99);
             txtComCause.TabIndex = 18;
             // 
             // label52
@@ -1855,7 +1910,7 @@ namespace RMA2021
             // label37
             // 
             label37.AutoSize = true;
-            label37.Location = new System.Drawing.Point(6, 408);
+            label37.Location = new System.Drawing.Point(10, 341);
             label37.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label37.Name = "label37";
             label37.Size = new System.Drawing.Size(133, 37);
@@ -1883,17 +1938,18 @@ namespace RMA2021
             // txtComAppearance
             // 
             txtComAppearance.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtComAppearance.Location = new System.Drawing.Point(145, 232);
+            txtComAppearance.Location = new System.Drawing.Point(145, 194);
             txtComAppearance.Margin = new System.Windows.Forms.Padding(5);
             txtComAppearance.Multiline = true;
             txtComAppearance.Name = "txtComAppearance";
-            txtComAppearance.Size = new System.Drawing.Size(518, 102);
+            txtComAppearance.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            txtComAppearance.Size = new System.Drawing.Size(983, 137);
             txtComAppearance.TabIndex = 16;
             // 
             // txtComPerson
             // 
             txtComPerson.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtComPerson.Location = new System.Drawing.Point(149, 678);
+            txtComPerson.Location = new System.Drawing.Point(633, 730);
             txtComPerson.Margin = new System.Windows.Forms.Padding(5);
             txtComPerson.Name = "txtComPerson";
             txtComPerson.Size = new System.Drawing.Size(153, 44);
@@ -1902,21 +1958,32 @@ namespace RMA2021
             // txtComCustomer
             // 
             txtComCustomer.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtComCustomer.Location = new System.Drawing.Point(145, 170);
+            txtComCustomer.Location = new System.Drawing.Point(145, 127);
             txtComCustomer.Margin = new System.Windows.Forms.Padding(5);
             txtComCustomer.Name = "txtComCustomer";
             txtComCustomer.Size = new System.Drawing.Size(200, 44);
             txtComCustomer.TabIndex = 8;
+            // 
+            // CBComCur
+            // 
+            CBComCur.BackColor = System.Drawing.Color.AntiqueWhite;
+            CBComCur.FormattingEnabled = true;
+            CBComCur.Items.AddRange(new object[] { "待追蹤", "待確認問題", "暫停中", "已完成" });
+            CBComCur.Location = new System.Drawing.Point(145, 733);
+            CBComCur.Margin = new System.Windows.Forms.Padding(5);
+            CBComCur.Name = "CBComCur";
+            CBComCur.Size = new System.Drawing.Size(295, 45);
+            CBComCur.TabIndex = 7;
             // 
             // CBComCasueSort
             // 
             CBComCasueSort.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComCasueSort.FormattingEnabled = true;
             CBComCasueSort.Items.AddRange(new object[] { "其它", "PCB問題", "元件問題", "軟體問題", "設計問題", "機構問題", "操作問題", "裝配或接線問題" });
-            CBComCasueSort.Location = new System.Drawing.Point(196, 514);
+            CBComCasueSort.Location = new System.Drawing.Point(834, 450);
             CBComCasueSort.Margin = new System.Windows.Forms.Padding(5);
             CBComCasueSort.Name = "CBComCasueSort";
-            CBComCasueSort.Size = new System.Drawing.Size(471, 45);
+            CBComCasueSort.Size = new System.Drawing.Size(295, 45);
             CBComCasueSort.TabIndex = 7;
             // 
             // CBComAppearanceSort
@@ -1924,26 +1991,26 @@ namespace RMA2021
             CBComAppearanceSort.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComAppearanceSort.FormattingEnabled = true;
             CBComAppearanceSort.Items.AddRange(new object[] { "其它", "無法開機", "顯示問題", "按鍵問題", "配件或包裝問題", "功能或精度問題", "高壓故障", "壽命問題", "燒𣪷或冒煙", "穩定度或抗干擾不足" });
-            CBComAppearanceSort.Location = new System.Drawing.Point(192, 350);
+            CBComAppearanceSort.Location = new System.Drawing.Point(823, 127);
             CBComAppearanceSort.Margin = new System.Windows.Forms.Padding(5);
             CBComAppearanceSort.Name = "CBComAppearanceSort";
-            CBComAppearanceSort.Size = new System.Drawing.Size(471, 45);
+            CBComAppearanceSort.Size = new System.Drawing.Size(303, 45);
             CBComAppearanceSort.TabIndex = 7;
             // 
             // label51
             // 
             label51.AutoSize = true;
-            label51.Location = new System.Drawing.Point(10, 512);
+            label51.Location = new System.Drawing.Point(633, 453);
             label51.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label51.Name = "label51";
             label51.Size = new System.Drawing.Size(191, 37);
             label51.TabIndex = 3;
-            label51.Text = "發生原因分類";
+            label51.Text = "問題原因分類";
             // 
             // label38
             // 
             label38.AutoSize = true;
-            label38.Location = new System.Drawing.Point(3, 353);
+            label38.Location = new System.Drawing.Point(624, 134);
             label38.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label38.Name = "label38";
             label38.Size = new System.Drawing.Size(191, 37);
@@ -1953,7 +2020,7 @@ namespace RMA2021
             // label36
             // 
             label36.AutoSize = true;
-            label36.Location = new System.Drawing.Point(338, 678);
+            label36.Location = new System.Drawing.Point(790, 733);
             label36.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label36.Name = "label36";
             label36.Size = new System.Drawing.Size(133, 37);
@@ -1963,7 +2030,7 @@ namespace RMA2021
             // label33
             // 
             label33.AutoSize = true;
-            label33.Location = new System.Drawing.Point(23, 678);
+            label33.Location = new System.Drawing.Point(519, 733);
             label33.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label33.Name = "label33";
             label33.Size = new System.Drawing.Size(104, 37);
@@ -1973,7 +2040,7 @@ namespace RMA2021
             // label44
             // 
             label44.AutoSize = true;
-            label44.Location = new System.Drawing.Point(2, 177);
+            label44.Location = new System.Drawing.Point(6, 134);
             label44.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label44.Name = "label44";
             label44.Size = new System.Drawing.Size(133, 37);
@@ -2018,12 +2085,18 @@ namespace RMA2021
             linkLabel1.TabIndex = 63;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "linkLabel1";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Title = "請選擇要上傳的檔案";
             // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1927, 1083);
+            ClientSize = new System.Drawing.Size(1924, 1050);
             Controls.Add(linkLabel1);
             Controls.Add(tabFunc);
             Controls.Add(txtUserNameShow);
@@ -2223,7 +2296,7 @@ namespace RMA2021
         private System.Windows.Forms.ComboBox CBComAppearanceSort;
         private System.Windows.Forms.Button btnComSave;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Button btnComDelete;
+        private System.Windows.Forms.Button btnComUpload;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label49;
@@ -2248,6 +2321,12 @@ namespace RMA2021
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.ComboBox CBComDateBetween;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox txtComImNow;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox CBComCur;
     }
 }
 
