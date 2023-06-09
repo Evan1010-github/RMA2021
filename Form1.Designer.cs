@@ -156,6 +156,7 @@ namespace RMA2021
             tabFunc = new System.Windows.Forms.TabControl();
             tabPage12 = new System.Windows.Forms.TabPage();
             tabPage13 = new System.Windows.Forms.TabPage();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
             groupBox4 = new System.Windows.Forms.GroupBox();
             CBComDateBetween = new System.Windows.Forms.ComboBox();
             radioButton4 = new System.Windows.Forms.RadioButton();
@@ -164,6 +165,7 @@ namespace RMA2021
             radioButton1 = new System.Windows.Forms.RadioButton();
             DGVcom = new System.Windows.Forms.DataGridView();
             groupBoxCom = new System.Windows.Forms.GroupBox();
+            linkLabel3 = new System.Windows.Forms.LinkLabel();
             txtComImNow = new System.Windows.Forms.TextBox();
             CBComWarranty = new System.Windows.Forms.ComboBox();
             btnComCancel = new System.Windows.Forms.Button();
@@ -198,7 +200,6 @@ namespace RMA2021
             label45 = new System.Windows.Forms.Label();
             label49 = new System.Windows.Forms.Label();
             label50 = new System.Windows.Forms.Label();
-            linkLabel1 = new System.Windows.Forms.LinkLabel();
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
@@ -1609,6 +1610,17 @@ namespace RMA2021
             tabPage13.Text = "客訴單";
             tabPage13.UseVisualStyleBackColor = true;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new System.Drawing.Point(1416, 64);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new System.Drawing.Size(96, 23);
+            linkLabel1.TabIndex = 63;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "linkLabel1";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // groupBox4
             // 
             groupBox4.Controls.Add(CBComDateBetween);
@@ -1691,6 +1703,7 @@ namespace RMA2021
             // 
             // groupBoxCom
             // 
+            groupBoxCom.Controls.Add(linkLabel3);
             groupBoxCom.Controls.Add(txtComImNow);
             groupBoxCom.Controls.Add(CBComWarranty);
             groupBoxCom.Controls.Add(btnComCancel);
@@ -1734,6 +1747,17 @@ namespace RMA2021
             groupBoxCom.TabIndex = 12;
             groupBoxCom.TabStop = false;
             groupBoxCom.Text = "資料區";
+            // 
+            // linkLabel3
+            // 
+            linkLabel3.AutoSize = true;
+            linkLabel3.Location = new System.Drawing.Point(145, 802);
+            linkLabel3.Name = "linkLabel3";
+            linkLabel3.Size = new System.Drawing.Size(220, 37);
+            linkLabel3.TabIndex = 63;
+            linkLabel3.TabStop = true;
+            linkLabel3.Text = "開啟相關資料夾";
+            linkLabel3.LinkClicked += linkLabel3_LinkClicked;
             // 
             // txtComImNow
             // 
@@ -2076,17 +2100,6 @@ namespace RMA2021
             label50.TabIndex = 3;
             label50.Text = "客訴編號";
             // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new System.Drawing.Point(1450, 62);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new System.Drawing.Size(96, 23);
-            linkLabel1.TabIndex = 63;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "linkLabel1";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
@@ -2327,6 +2340,7 @@ namespace RMA2021
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.ComboBox CBComCur;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }
 

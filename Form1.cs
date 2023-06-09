@@ -99,7 +99,7 @@ namespace RMA2021
         {
             linkLabel1.Text = "RMA更新";
             double RMAversion = 4.1;
-            string DefultFormText = "RMA V4.1免安裝版";//first Load Text
+            string DefultFormText = "RMA V4.1安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -2313,8 +2313,20 @@ namespace RMA2021
             System.Diagnostics.Process.Start("explorer.exe", @"\\192.168.1.3\public\佳文\軟體\RMA登錄工具");
         }
 
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel3.LinkVisited = true;
+            string filePath = @"\\192.168.1.3\public\品管品質\客訴單文件\" + txtComNumber.Text;
 
-
+            if (System.IO.Directory.Exists(filePath))
+            {
+                System.Diagnostics.Process.Start("explorer.exe", filePath);
+            }
+            else
+            {
+                MessageBox.Show("Error: 尚未建立此客訴單的資料目錄", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }    
     }
 }
 
