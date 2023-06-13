@@ -2326,8 +2326,47 @@ namespace RMA2021
             {
                 MessageBox.Show("Error: 尚未建立此客訴單的資料目錄", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }    
-    }
+        }
+        private void btnComOut_Click(object sender, EventArgs e)
+        {
+            ////////////////////////////////////////////////////////////////////////
+            DataTable dt = new DataTable();
+            //dt.Columns.Add("狀態");
+            //dt.Columns.Add("維修校驗");
+            //dt.Columns.Add("成品半成品");
+            //dt.Columns.Add("機種名");
+            //dt.Columns.Add("板名");
+            foreach (DataGridViewColumn column in DGVcom.Columns)
+                dt.Columns.Add(column.Name);
+            for (int i = 0; i < DGVcom.Rows.Count; i++)
+            {
+                dt.Rows.Add();
+                for (int j = 0; j < DGVcom.Columns.Count; j++)
+                {
+                    dt.Rows[i][j] = DGVcom.Rows[i].Cells[j].Value.ToString();
+                }
+            }
+            MemoryStream stream = new MemoryStream();
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            // 關閉新許可模式通知
+            using (var ep1 = new ExcelPackage(stream))
+            {
+                var worksheet = ep1.Workbook.Worksheets.Add("客訴匯出");
+                // ExcelWorksheet sheet = ep1.Workbook.Worksheets[0];
+                //datatable 使用 LoadFromDatatable,collection 可使用 LoadFromCollection
+                worksheet.Cells["A1"].LoadFromDataTable(dt, true);
+                ep1.Save();
+                string fileName = "客訴" + DateTime.Now.ToString("yyyyMMddHHmm");
+                // string path1 = AppDomain.CurrentDomain.BaseDirectory + "xlsx\\"+fileName+".xlsx";
+                // string filePath1 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\xlsx\\setLotFile.xlsx";
+                string path1 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + fileName + ".xlsx";
+                using FileStream myFile = File.Open(path1, FileMode.OpenOrCreate);
+                stream.WriteTo(myFile);
+                myFile.Close();
+                MessageBox.Show("已成功存檔於桌面，檔名:" + fileName + ".xlsx");
+            }
+        } 
+    }  
 }
 
 

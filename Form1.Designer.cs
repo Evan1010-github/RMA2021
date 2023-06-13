@@ -156,7 +156,6 @@ namespace RMA2021
             tabFunc = new System.Windows.Forms.TabControl();
             tabPage12 = new System.Windows.Forms.TabPage();
             tabPage13 = new System.Windows.Forms.TabPage();
-            linkLabel1 = new System.Windows.Forms.LinkLabel();
             groupBox4 = new System.Windows.Forms.GroupBox();
             CBComDateBetween = new System.Windows.Forms.ComboBox();
             radioButton4 = new System.Windows.Forms.RadioButton();
@@ -200,7 +199,9 @@ namespace RMA2021
             label45 = new System.Windows.Forms.Label();
             label49 = new System.Windows.Forms.Label();
             label50 = new System.Windows.Forms.Label();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            btnComOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -1610,19 +1611,9 @@ namespace RMA2021
             tabPage13.Text = "客訴單";
             tabPage13.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new System.Drawing.Point(1416, 64);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new System.Drawing.Size(96, 23);
-            linkLabel1.TabIndex = 63;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "linkLabel1";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(btnComOut);
             groupBox4.Controls.Add(CBComDateBetween);
             groupBox4.Controls.Add(radioButton4);
             groupBox4.Controls.Add(radioButton3);
@@ -1639,7 +1630,7 @@ namespace RMA2021
             // 
             CBComDateBetween.FormattingEnabled = true;
             CBComDateBetween.Items.AddRange(new object[] { "最近一個月", "最近一季", "最近一年", "所有" });
-            CBComDateBetween.Location = new System.Drawing.Point(485, 37);
+            CBComDateBetween.Location = new System.Drawing.Point(400, 36);
             CBComDateBetween.Name = "CBComDateBetween";
             CBComDateBetween.Size = new System.Drawing.Size(182, 31);
             CBComDateBetween.TabIndex = 1;
@@ -1648,7 +1639,7 @@ namespace RMA2021
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new System.Drawing.Point(372, 38);
+            radioButton4.Location = new System.Drawing.Point(305, 38);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new System.Drawing.Size(89, 27);
             radioButton4.TabIndex = 0;
@@ -1658,7 +1649,7 @@ namespace RMA2021
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new System.Drawing.Point(239, 38);
+            radioButton3.Location = new System.Drawing.Point(210, 38);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new System.Drawing.Size(89, 27);
             radioButton3.TabIndex = 0;
@@ -1668,7 +1659,7 @@ namespace RMA2021
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new System.Drawing.Point(128, 38);
+            radioButton2.Location = new System.Drawing.Point(115, 37);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new System.Drawing.Size(89, 27);
             radioButton2.TabIndex = 0;
@@ -2100,10 +2091,31 @@ namespace RMA2021
             label50.TabIndex = 3;
             label50.Text = "客訴編號";
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new System.Drawing.Point(1416, 64);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new System.Drawing.Size(96, 23);
+            linkLabel1.TabIndex = 63;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "linkLabel1";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
             openFileDialog1.Title = "請選擇要上傳的檔案";
+            // 
+            // btnComOut
+            // 
+            btnComOut.Location = new System.Drawing.Point(588, 34);
+            btnComOut.Name = "btnComOut";
+            btnComOut.Size = new System.Drawing.Size(112, 34);
+            btnComOut.TabIndex = 2;
+            btnComOut.Text = "匯出";
+            btnComOut.UseVisualStyleBackColor = true;
+            btnComOut.Click += btnComOut_Click;
             // 
             // Form1
             // 
@@ -2341,6 +2353,7 @@ namespace RMA2021
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.ComboBox CBComCur;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Button btnComOut;
     }
 }
 
