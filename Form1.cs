@@ -10,6 +10,8 @@ using System.Data.SqlClient;
 using RMA2021.Properties;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.Net;
+using System.Data.SqlTypes;
+using System.Security.Cryptography;
 
 namespace RMA2021
 {
@@ -35,7 +37,7 @@ namespace RMA2021
             dataGridView4.Enabled = false;
             DGVcom.Enabled = false;
             ///業務才開(客訴區)
-            txtComNumber.Enabled = false;
+            txtComNumber.Enabled = true;
             txtComModel.Enabled = false;
             dateTimePickerCom.Enabled = false;
             txtComCustomer.Enabled = false;
@@ -84,6 +86,7 @@ namespace RMA2021
             toolTip.IsBalloon = true;      //氣球狀外觀
             // Set up the ToolTip text for the Button
             toolTip.SetToolTip(this.txtWarranty, "自動依建單時輸入的出貨日，以一年內計算");
+            toolTip.SetToolTip(this.txtComNumber, "單號會在按下新建時自動編號");
             BTNDeadLine.Enabled = false;
             Clear();
             ClearCOM();
@@ -98,8 +101,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.1;
-            string DefultFormText = "RMA V4.1安裝版";//first Load Text
+            double RMAversion = 4.2;
+            string DefultFormText = "RMA V4.2安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -2090,7 +2093,8 @@ namespace RMA2021
                 DGVcom.Rows[DGVcom.CurrentRow.Index].DefaultCellStyle.BackColor = Color.FromArgb(0, 122, 204);
                 DGVcom.Rows[DGVcom.CurrentRow.Index].DefaultCellStyle.ForeColor = Color.White;
                 bookComID = Convert.ToInt32(DGVcom.CurrentRow.Cells[0].Value.ToString());
-                txtComNumber.Text = DGVcom.CurrentRow.Cells[1].Value.ToString();                                                                                            //  dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
+                txtComNumber.Text = DGVcom.CurrentRow.Cells[1].Value.ToString();
+                //  dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
                 txtComModel.Text = DGVcom.CurrentRow.Cells[3].Value.ToString();
                 txtComCustomer.Text = DGVcom.CurrentRow.Cells[4].Value.ToString();
                 txtComAppearance.Text = DGVcom.CurrentRow.Cells[5].Value.ToString();
@@ -2167,6 +2171,29 @@ namespace RMA2021
                 cmd.Connection = conn;
                 if (bookComID == 0)//新增資料
                 {
+                    ///自動取編號
+                    string year = DateTime.Now.ToString("yy");
+                    string month = DateTime.Now.ToString("MM");
+                    cmd.CommandText=$"SELECT MAX(CAST(SUBSTRING(`客訴編號`, 11, LENGTH(`客訴編號`) - 10) AS UNSIGNED)) AS 最大數字 "+
+                                    $"FROM rma.CustomerComplaint WHERE `客訴編號` LIKE 'MIC-"+year+"-"+month+"-%'";
+                    // 执行查询并接收结果
+                    object result = cmd.ExecuteScalar();
+
+                    // 将结果转换为合适的数据类型
+                    if (result != null && result != DBNull.Value )
+                    {
+                        int maxNumber = Convert.ToInt32(result);
+                        int seq = maxNumber + 1;
+                        string seqNumber = seq.ToString().PadLeft(2, '0');
+                        // 使用最大数字+1
+                        txtComNumber.Text = "MIC-" + year + "-" + month + "-" + seqNumber;
+                    }
+                    else
+                    {
+                        // 处理查询结果为空的情况
+                        txtComNumber.Text = "MIC-" + year + "-" + month + "-" +"01";
+                    }
+                    
                     // 建單日 = DateTime.Now.ToLocalTime().ToString();//建單日時
                     cmd.CommandText = $"INSERT INTO rma.CustomerComplaint(客訴編號,客訴日期,機種型號," +
                       $"客戶名稱,保固,製品問題,問題現象分類,建單日,建單人)" +
@@ -2331,11 +2358,6 @@ namespace RMA2021
         {
             ////////////////////////////////////////////////////////////////////////
             DataTable dt = new DataTable();
-            //dt.Columns.Add("狀態");
-            //dt.Columns.Add("維修校驗");
-            //dt.Columns.Add("成品半成品");
-            //dt.Columns.Add("機種名");
-            //dt.Columns.Add("板名");
             foreach (DataGridViewColumn column in DGVcom.Columns)
                 dt.Columns.Add(column.Name);
             for (int i = 0; i < DGVcom.Rows.Count; i++)
@@ -2352,21 +2374,29 @@ namespace RMA2021
             using (var ep1 = new ExcelPackage(stream))
             {
                 var worksheet = ep1.Workbook.Worksheets.Add("客訴匯出");
-                // ExcelWorksheet sheet = ep1.Workbook.Worksheets[0];
-                //datatable 使用 LoadFromDatatable,collection 可使用 LoadFromCollection
                 worksheet.Cells["A1"].LoadFromDataTable(dt, true);
                 ep1.Save();
                 string fileName = "客訴" + DateTime.Now.ToString("yyyyMMddHHmm");
-                // string path1 = AppDomain.CurrentDomain.BaseDirectory + "xlsx\\"+fileName+".xlsx";
-                // string filePath1 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\xlsx\\setLotFile.xlsx";
                 string path1 = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + fileName + ".xlsx";
                 using FileStream myFile = File.Open(path1, FileMode.OpenOrCreate);
                 stream.WriteTo(myFile);
                 myFile.Close();
                 MessageBox.Show("已成功存檔於桌面，檔名:" + fileName + ".xlsx");
             }
-        } 
-    }  
+        }
+
+        private void dateTimePickerCom_ValueChanged(object sender, EventArgs e)
+        {
+            this.dateTimePickerCom.Format = DateTimePickerFormat.Long;
+            this.dateTimePickerCom.CustomFormat = null;
+        }
+
+        private void dateTimePickerComFinish_ValueChanged(object sender, EventArgs e)
+        {
+            this.dateTimePickerComFinish.Format = DateTimePickerFormat.Long;
+            this.dateTimePickerComFinish.CustomFormat = null;
+        }
+    }
 }
 
 
