@@ -86,7 +86,7 @@ namespace RMA2021
             toolTip.IsBalloon = true;      //氣球狀外觀
             // Set up the ToolTip text for the Button
             toolTip.SetToolTip(this.txtWarranty, "自動依建單時輸入的出貨日，以一年內計算");
-            toolTip.SetToolTip(this.txtComNumber, "單號會在按下新建時自動編號");
+            toolTip.SetToolTip(this.txtComNumber, "單號會在按下新建輸入時自動編號");
             BTNDeadLine.Enabled = false;
             Clear();
             ClearCOM();
@@ -101,8 +101,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.2;
-            string DefultFormText = "RMA V4.2安裝版";//first Load Text
+            double RMAversion = 4.3;
+            string DefultFormText = "RMA V4.3安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -2174,13 +2174,13 @@ namespace RMA2021
                     ///自動取編號
                     string year = DateTime.Now.ToString("yy");
                     string month = DateTime.Now.ToString("MM");
-                    cmd.CommandText=$"SELECT MAX(CAST(SUBSTRING(`客訴編號`, 11, LENGTH(`客訴編號`) - 10) AS UNSIGNED)) AS 最大數字 "+
-                                    $"FROM rma.CustomerComplaint WHERE `客訴編號` LIKE 'MIC-"+year+"-"+month+"-%'";
+                    cmd.CommandText = $"SELECT MAX(CAST(SUBSTRING(`客訴編號`, 11, LENGTH(`客訴編號`) - 10) AS UNSIGNED)) AS 最大數字 " +
+                                    $"FROM rma.CustomerComplaint WHERE `客訴編號` LIKE 'MIC-" + year + "-" + month + "-%'";
                     // 执行查询并接收结果
                     object result = cmd.ExecuteScalar();
 
                     // 将结果转换为合适的数据类型
-                    if (result != null && result != DBNull.Value )
+                    if (result != null && result != DBNull.Value)
                     {
                         int maxNumber = Convert.ToInt32(result);
                         int seq = maxNumber + 1;
@@ -2191,9 +2191,9 @@ namespace RMA2021
                     else
                     {
                         // 处理查询结果为空的情况
-                        txtComNumber.Text = "MIC-" + year + "-" + month + "-" +"01";
+                        txtComNumber.Text = "MIC-" + year + "-" + month + "-" + "01";
                     }
-                    
+
                     // 建單日 = DateTime.Now.ToLocalTime().ToString();//建單日時
                     cmd.CommandText = $"INSERT INTO rma.CustomerComplaint(客訴編號,客訴日期,機種型號," +
                       $"客戶名稱,保固,製品問題,問題現象分類,建單日,建單人)" +

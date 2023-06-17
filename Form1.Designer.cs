@@ -2053,7 +2053,7 @@ namespace RMA2021
             // 
             CBComAppearanceSort.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComAppearanceSort.FormattingEnabled = true;
-            CBComAppearanceSort.Items.AddRange(new object[] { "其它", "無法開機", "顯示問題", "按鍵問題", "配件或包裝問題", "功能或精度問題", "高壓故障", "壽命問題", "燒𣪷或冒煙", "穩定度或抗干擾不足" });
+            CBComAppearanceSort.Items.AddRange(new object[] { "其它", "無法開機", "顯示問題", "按鍵問題", "配件或包裝問題", "功能或精度問題", "高壓故障", "壽命問題", "燒毀或冒煙", "穩定度或抗干擾不足" });
             CBComAppearanceSort.Location = new System.Drawing.Point(823, 127);
             CBComAppearanceSort.Margin = new System.Windows.Forms.Padding(5);
             CBComAppearanceSort.Name = "CBComAppearanceSort";
