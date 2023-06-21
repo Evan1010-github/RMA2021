@@ -161,6 +161,8 @@ namespace RMA2021
             tabPage12 = new System.Windows.Forms.TabPage();
             tabPage13 = new System.Windows.Forms.TabPage();
             groupBox4 = new System.Windows.Forms.GroupBox();
+            txtComSerach = new System.Windows.Forms.TextBox();
+            BTNComSerach = new System.Windows.Forms.Button();
             btnComOut = new System.Windows.Forms.Button();
             CBComDateBetween = new System.Windows.Forms.ComboBox();
             radioButton4 = new System.Windows.Forms.RadioButton();
@@ -1633,6 +1635,8 @@ namespace RMA2021
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(txtComSerach);
+            groupBox4.Controls.Add(BTNComSerach);
             groupBox4.Controls.Add(btnComOut);
             groupBox4.Controls.Add(CBComDateBetween);
             groupBox4.Controls.Add(radioButton4);
@@ -1641,16 +1645,35 @@ namespace RMA2021
             groupBox4.Controls.Add(radioButton1);
             groupBox4.Location = new System.Drawing.Point(1154, 8);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new System.Drawing.Size(701, 87);
+            groupBox4.Size = new System.Drawing.Size(701, 159);
             groupBox4.TabIndex = 14;
             groupBox4.TabStop = false;
             groupBox4.Text = "處理狀態";
             // 
+            // txtComSerach
+            // 
+            txtComSerach.Location = new System.Drawing.Point(20, 98);
+            txtComSerach.Margin = new System.Windows.Forms.Padding(5);
+            txtComSerach.Name = "txtComSerach";
+            txtComSerach.Size = new System.Drawing.Size(235, 30);
+            txtComSerach.TabIndex = 19;
+            // 
+            // BTNComSerach
+            // 
+            BTNComSerach.Location = new System.Drawing.Point(292, 87);
+            BTNComSerach.Margin = new System.Windows.Forms.Padding(5);
+            BTNComSerach.Name = "BTNComSerach";
+            BTNComSerach.Size = new System.Drawing.Size(152, 51);
+            BTNComSerach.TabIndex = 18;
+            BTNComSerach.Text = "Search";
+            BTNComSerach.UseVisualStyleBackColor = true;
+            BTNComSerach.Click += BTNComSerach_Click;
+            // 
             // btnComOut
             // 
-            btnComOut.Location = new System.Drawing.Point(570, 33);
+            btnComOut.Location = new System.Drawing.Point(555, 94);
             btnComOut.Name = "btnComOut";
-            btnComOut.Size = new System.Drawing.Size(112, 34);
+            btnComOut.Size = new System.Drawing.Size(140, 55);
             btnComOut.TabIndex = 2;
             btnComOut.Text = "匯出";
             btnComOut.UseVisualStyleBackColor = true;
@@ -1660,7 +1683,7 @@ namespace RMA2021
             // 
             CBComDateBetween.FormattingEnabled = true;
             CBComDateBetween.Items.AddRange(new object[] { "最近一個月", "最近一季", "最近一年", "所有" });
-            CBComDateBetween.Location = new System.Drawing.Point(400, 36);
+            CBComDateBetween.Location = new System.Drawing.Point(425, 36);
             CBComDateBetween.Name = "CBComDateBetween";
             CBComDateBetween.Size = new System.Drawing.Size(134, 31);
             CBComDateBetween.TabIndex = 1;
@@ -1669,7 +1692,7 @@ namespace RMA2021
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new System.Drawing.Point(305, 38);
+            radioButton4.Location = new System.Drawing.Point(316, 37);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new System.Drawing.Size(89, 27);
             radioButton4.TabIndex = 0;
@@ -1728,12 +1751,12 @@ namespace RMA2021
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             DGVcom.DefaultCellStyle = dataGridViewCellStyle4;
-            DGVcom.Location = new System.Drawing.Point(1154, 103);
+            DGVcom.Location = new System.Drawing.Point(1154, 175);
             DGVcom.Margin = new System.Windows.Forms.Padding(5);
             DGVcom.Name = "DGVcom";
             DGVcom.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             DGVcom.RowTemplate.Height = 25;
-            DGVcom.Size = new System.Drawing.Size(701, 771);
+            DGVcom.Size = new System.Drawing.Size(701, 699);
             DGVcom.TabIndex = 13;
             DGVcom.CellLeave += DGVcom_CellLeave;
             DGVcom.Click += DGVcom_Click;
@@ -2392,6 +2415,8 @@ namespace RMA2021
         private System.Windows.Forms.ComboBox CBComCur;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.Button btnComOut;
+        private System.Windows.Forms.TextBox txtComSerach;
+        private System.Windows.Forms.Button BTNComSerach;
     }
 }
 

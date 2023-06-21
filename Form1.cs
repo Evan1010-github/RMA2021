@@ -27,6 +27,7 @@ namespace RMA2021
         string txtCalPerson = "";
         string txtFQCPerson = "";
         string PlayRole = "";
+        string UpdateThisTime = "";
         //   bool warning = false;
         public Form1()
         {
@@ -74,6 +75,12 @@ namespace RMA2021
             RBtn1.Checked = true;
             labelCOUNT.Text = "";
             timer1.Enabled = false;
+        
+            BTNDeadLine.Enabled = false;
+            Clear();
+            ClearCOM();
+            GridFill();
+            softUpdateCheck();
             // Create the ToolTip and associate with the Form container.
             ToolTip toolTip = new ToolTip();
             // Set up the delays for the ToolTip.
@@ -87,11 +94,7 @@ namespace RMA2021
             // Set up the ToolTip text for the Button
             toolTip.SetToolTip(this.txtWarranty, "自動依建單時輸入的出貨日，以一年內計算");
             toolTip.SetToolTip(this.txtComNumber, "單號會在按下新建輸入時自動編號");
-            BTNDeadLine.Enabled = false;
-            Clear();
-            ClearCOM();
-            GridFill();
-            softUpdateCheck();
+            toolTip.SetToolTip(this.linkLabel1, UpdateThisTime);
             radioButton1.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             radioButton2.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             radioButton3.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
@@ -101,8 +104,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.3;
-            string DefultFormText = "RMA V4.3安裝版";//first Load Text
+            double RMAversion = 4.4;
+            string DefultFormText = "RMA V4.4安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -123,6 +126,7 @@ namespace RMA2021
                             // Get the software name and version.
                             string softName = rdr["SoftName"].ToString();
                             double version = double.Parse(rdr["Version"].ToString());
+                            UpdateThisTime = rdr["更新內容"].ToString();
                             if (softName == "RMA")
                             {
                                 if (version > RMAversion)
@@ -2276,7 +2280,6 @@ namespace RMA2021
             {
                 conn.Close();
             }
-
         }
 
         private void btnComUpload_Click(object sender, EventArgs e)
@@ -2395,6 +2398,76 @@ namespace RMA2021
         {
             this.dateTimePickerComFinish.Format = DateTimePickerFormat.Long;
             this.dateTimePickerComFinish.CustomFormat = null;
+        }
+
+        private void BTNComSerach_Click(object sender, EventArgs e)//2023/6/21 增加
+        {
+            string cs = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt.Columns.Add(new DataColumn("流水號", typeof(string)));
+            dt.Columns.Add(new DataColumn("客訴編號", typeof(string)));
+            dt.Columns.Add(new DataColumn("客訴日期", typeof(string)));
+            dt.Columns.Add(new DataColumn("機種型號", typeof(string)));
+            dt.Columns.Add(new DataColumn("客戶名稱", typeof(string)));
+            dt.Columns.Add(new DataColumn("製品問題", typeof(string)));
+            dt.Columns.Add(new DataColumn("問題現象分類", typeof(string)));
+            dt.Columns.Add(new DataColumn("原因分析", typeof(string)));
+            dt.Columns.Add(new DataColumn("問題原因分類", typeof(string)));
+            dt.Columns.Add(new DataColumn("保固", typeof(string)));
+            dt.Columns.Add(new DataColumn("暫時對策", typeof(string)));
+            dt.Columns.Add(new DataColumn("目前進度", typeof(string)));
+            dt.Columns.Add(new DataColumn("改善對策", typeof(string)));
+            dt.Columns.Add(new DataColumn("建單人", typeof(string)));
+            dt.Columns.Add(new DataColumn("負責人", typeof(string)));
+            dt.Columns.Add(new DataColumn("預計完成日", typeof(string)));
+            dt.Columns.Add(new DataColumn("責任單位", typeof(string)));    
+            dt.Columns.Add(new DataColumn("狀態", typeof(string)));
+            dt.Columns.Add(new DataColumn("建單日", typeof(string)));
+            dt.Columns.Add(new DataColumn("實際完成日", typeof(string)));
+            MySqlConnection con = new MySqlConnection(cs);
+            try
+            {
+                string SQLWord = "";    
+                SQLWord = $"SELECT * FROM rma.CustomerComplaint WHERE 流水號 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 客訴編號 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 客訴日期 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 機種型號 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 客戶名稱 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 製品問題 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 問題現象分類 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 原因分析 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 問題原因分類 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 保固 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 暫時對策 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 目前進度 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 改善對策 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 建單人 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 負責人 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 預計完成日 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 責任單位 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 狀態 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 建單日 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 實際完成日 LIKE CONCAT('%" + txtComSerach.Text + "%')";
+                using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
+                {
+                        mysqlCon.Open();
+                        MySqlDataAdapter sqlDa = new MySqlDataAdapter(SQLWord, mysqlCon);
+                        System.Data.DataTable dtblBook = new System.Data.DataTable();
+                        sqlDa.Fill(dtblBook);
+                        DGVcom.DataSource = dtblBook;
+                        DGVcom.DefaultCellStyle.ForeColor = Color.Blue;
+                        DGVcom.DefaultCellStyle.BackColor = Color.Beige;
+                        DGVcom.Columns[0].Visible = false;//流水號ID
+                }                     
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("SQL SERVER連線異常!!!");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }
