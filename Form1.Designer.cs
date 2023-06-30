@@ -30,10 +30,10 @@ namespace RMA2021
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnSave = new System.Windows.Forms.Button();
             btnDelete = new System.Windows.Forms.Button();
@@ -208,6 +208,10 @@ namespace RMA2021
             label50 = new System.Windows.Forms.Label();
             linkLabel1 = new System.Windows.Forms.LinkLabel();
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            dateTimePickerComSellDate = new System.Windows.Forms.DateTimePicker();
+            label41 = new System.Windows.Forms.Label();
+            label42 = new System.Windows.Forms.Label();
+            txtComSN = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -876,7 +880,7 @@ namespace RMA2021
             // label31
             // 
             label31.AutoSize = true;
-            label31.Location = new System.Drawing.Point(350, 241);
+            label31.Location = new System.Drawing.Point(341, 241);
             label31.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label31.Name = "label31";
             label31.Size = new System.Drawing.Size(133, 37);
@@ -1557,23 +1561,23 @@ namespace RMA2021
             // dataGridViewItemsQuery
             // 
             dataGridViewItemsQuery.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridViewItemsQuery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewItemsQuery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewItemsQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridViewItemsQuery.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewItemsQuery.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewItemsQuery.Location = new System.Drawing.Point(5, 78);
             dataGridViewItemsQuery.Margin = new System.Windows.Forms.Padding(5);
             dataGridViewItemsQuery.Name = "dataGridViewItemsQuery";
@@ -1734,23 +1738,23 @@ namespace RMA2021
             // DGVcom
             // 
             DGVcom.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DGVcom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DGVcom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             DGVcom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DGVcom.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            DGVcom.DefaultCellStyle = dataGridViewCellStyle8;
             DGVcom.Location = new System.Drawing.Point(1154, 175);
             DGVcom.Margin = new System.Windows.Forms.Padding(5);
             DGVcom.Name = "DGVcom";
@@ -1775,8 +1779,10 @@ namespace RMA2021
             groupBoxCom.Controls.Add(label35);
             groupBoxCom.Controls.Add(label47);
             groupBoxCom.Controls.Add(CBComDepartment);
+            groupBoxCom.Controls.Add(label41);
             groupBoxCom.Controls.Add(label34);
             groupBoxCom.Controls.Add(label43);
+            groupBoxCom.Controls.Add(dateTimePickerComSellDate);
             groupBoxCom.Controls.Add(dateTimePickerCom);
             groupBoxCom.Controls.Add(txtImprovement);
             groupBoxCom.Controls.Add(txtComCause);
@@ -1786,6 +1792,7 @@ namespace RMA2021
             groupBoxCom.Controls.Add(txtComModel);
             groupBoxCom.Controls.Add(txtComAppearance);
             groupBoxCom.Controls.Add(txtComPerson);
+            groupBoxCom.Controls.Add(txtComSN);
             groupBoxCom.Controls.Add(txtComCustomer);
             groupBoxCom.Controls.Add(CBComCur);
             groupBoxCom.Controls.Add(CBComCasueSort);
@@ -1793,6 +1800,7 @@ namespace RMA2021
             groupBoxCom.Controls.Add(label51);
             groupBoxCom.Controls.Add(label38);
             groupBoxCom.Controls.Add(label36);
+            groupBoxCom.Controls.Add(label42);
             groupBoxCom.Controls.Add(label33);
             groupBoxCom.Controls.Add(label44);
             groupBoxCom.Controls.Add(label45);
@@ -1835,7 +1843,7 @@ namespace RMA2021
             CBComWarranty.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComWarranty.FormattingEnabled = true;
             CBComWarranty.Items.AddRange(new object[] { "是", "否" });
-            CBComWarranty.Location = new System.Drawing.Point(481, 126);
+            CBComWarranty.Location = new System.Drawing.Point(536, 118);
             CBComWarranty.Margin = new System.Windows.Forms.Padding(5);
             CBComWarranty.Name = "CBComWarranty";
             CBComWarranty.Size = new System.Drawing.Size(127, 45);
@@ -1915,7 +1923,7 @@ namespace RMA2021
             // label47
             // 
             label47.AutoSize = true;
-            label47.Location = new System.Drawing.Point(6, 194);
+            label47.Location = new System.Drawing.Point(6, 227);
             label47.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label47.Name = "label47";
             label47.Size = new System.Drawing.Size(133, 37);
@@ -1946,7 +1954,7 @@ namespace RMA2021
             // label43
             // 
             label43.AutoSize = true;
-            label43.Location = new System.Drawing.Point(355, 134);
+            label43.Location = new System.Drawing.Point(410, 122);
             label43.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label43.Name = "label43";
             label43.Size = new System.Drawing.Size(104, 37);
@@ -2024,12 +2032,12 @@ namespace RMA2021
             // txtComAppearance
             // 
             txtComAppearance.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtComAppearance.Location = new System.Drawing.Point(145, 194);
+            txtComAppearance.Location = new System.Drawing.Point(145, 224);
             txtComAppearance.Margin = new System.Windows.Forms.Padding(5);
             txtComAppearance.Multiline = true;
             txtComAppearance.Name = "txtComAppearance";
             txtComAppearance.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            txtComAppearance.Size = new System.Drawing.Size(983, 137);
+            txtComAppearance.Size = new System.Drawing.Size(983, 107);
             txtComAppearance.TabIndex = 16;
             // 
             // txtComPerson
@@ -2044,10 +2052,10 @@ namespace RMA2021
             // txtComCustomer
             // 
             txtComCustomer.BackColor = System.Drawing.Color.AntiqueWhite;
-            txtComCustomer.Location = new System.Drawing.Point(145, 127);
+            txtComCustomer.Location = new System.Drawing.Point(145, 122);
             txtComCustomer.Margin = new System.Windows.Forms.Padding(5);
             txtComCustomer.Name = "txtComCustomer";
-            txtComCustomer.Size = new System.Drawing.Size(200, 44);
+            txtComCustomer.Size = new System.Drawing.Size(255, 44);
             txtComCustomer.TabIndex = 8;
             // 
             // CBComCur
@@ -2077,7 +2085,7 @@ namespace RMA2021
             CBComAppearanceSort.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComAppearanceSort.FormattingEnabled = true;
             CBComAppearanceSort.Items.AddRange(new object[] { "其它", "無法開機", "顯示問題", "按鍵問題", "配件或包裝問題", "功能或精度問題", "高壓故障", "壽命問題", "燒毀或冒煙", "穩定度或抗干擾不足" });
-            CBComAppearanceSort.Location = new System.Drawing.Point(823, 127);
+            CBComAppearanceSort.Location = new System.Drawing.Point(823, 172);
             CBComAppearanceSort.Margin = new System.Windows.Forms.Padding(5);
             CBComAppearanceSort.Name = "CBComAppearanceSort";
             CBComAppearanceSort.Size = new System.Drawing.Size(303, 45);
@@ -2096,7 +2104,7 @@ namespace RMA2021
             // label38
             // 
             label38.AutoSize = true;
-            label38.Location = new System.Drawing.Point(624, 134);
+            label38.Location = new System.Drawing.Point(622, 175);
             label38.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label38.Name = "label38";
             label38.Size = new System.Drawing.Size(191, 37);
@@ -2126,7 +2134,7 @@ namespace RMA2021
             // label44
             // 
             label44.AutoSize = true;
-            label44.Location = new System.Drawing.Point(6, 134);
+            label44.Location = new System.Drawing.Point(2, 125);
             label44.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label44.Name = "label44";
             label44.Size = new System.Drawing.Size(133, 37);
@@ -2177,6 +2185,43 @@ namespace RMA2021
             // 
             openFileDialog1.FileName = "openFileDialog1";
             openFileDialog1.Title = "請選擇要上傳的檔案";
+            // 
+            // dateTimePickerComSellDate
+            // 
+            dateTimePickerComSellDate.Location = new System.Drawing.Point(823, 119);
+            dateTimePickerComSellDate.Name = "dateTimePickerComSellDate";
+            dateTimePickerComSellDate.Size = new System.Drawing.Size(303, 44);
+            dateTimePickerComSellDate.TabIndex = 23;
+            dateTimePickerComSellDate.ValueChanged += dateTimePickerCom_ValueChanged;
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Location = new System.Drawing.Point(682, 122);
+            label41.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label41.Name = "label41";
+            label41.Size = new System.Drawing.Size(133, 37);
+            label41.TabIndex = 24;
+            label41.Text = "出貨日期";
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Location = new System.Drawing.Point(3, 175);
+            label42.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label42.Name = "label42";
+            label42.Size = new System.Drawing.Size(133, 37);
+            label42.TabIndex = 3;
+            label42.Text = "機器序號";
+            // 
+            // txtComSN
+            // 
+            txtComSN.BackColor = System.Drawing.Color.AntiqueWhite;
+            txtComSN.Location = new System.Drawing.Point(145, 172);
+            txtComSN.Margin = new System.Windows.Forms.Padding(5);
+            txtComSN.Name = "txtComSN";
+            txtComSN.Size = new System.Drawing.Size(255, 44);
+            txtComSN.TabIndex = 8;
             // 
             // Form1
             // 
@@ -2417,6 +2462,10 @@ namespace RMA2021
         private System.Windows.Forms.Button btnComOut;
         private System.Windows.Forms.TextBox txtComSerach;
         private System.Windows.Forms.Button BTNComSerach;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.DateTimePicker dateTimePickerComSellDate;
+        private System.Windows.Forms.TextBox txtComSN;
+        private System.Windows.Forms.Label label42;
     }
 }
 

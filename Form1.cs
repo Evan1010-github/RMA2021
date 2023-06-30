@@ -75,12 +75,8 @@ namespace RMA2021
             RBtn1.Checked = true;
             labelCOUNT.Text = "";
             timer1.Enabled = false;
-        
+
             BTNDeadLine.Enabled = false;
-            Clear();
-            ClearCOM();
-            GridFill();
-            softUpdateCheck();
             // Create the ToolTip and associate with the Form container.
             ToolTip toolTip = new ToolTip();
             // Set up the delays for the ToolTip.
@@ -92,6 +88,11 @@ namespace RMA2021
             toolTip.UseFading = true;      //淡入淡出效果
             toolTip.IsBalloon = true;      //氣球狀外觀
             // Set up the ToolTip text for the Button
+            Clear();
+            ClearCOM();
+            GridFill();
+            softUpdateCheck();
+
             toolTip.SetToolTip(this.txtWarranty, "自動依建單時輸入的出貨日，以一年內計算");
             toolTip.SetToolTip(this.txtComNumber, "單號會在按下新建輸入時自動編號");
             toolTip.SetToolTip(this.linkLabel1, UpdateThisTime);
@@ -104,8 +105,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.4;
-            string DefultFormText = "RMA V4.4安裝版";//first Load Text
+            double RMAversion = 4.6;
+            string DefultFormText = "RMA V4.6安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -126,9 +127,10 @@ namespace RMA2021
                             // Get the software name and version.
                             string softName = rdr["SoftName"].ToString();
                             double version = double.Parse(rdr["Version"].ToString());
-                            UpdateThisTime = rdr["更新內容"].ToString();
+
                             if (softName == "RMA")
                             {
+                                UpdateThisTime = rdr["更新內容"].ToString();
                                 if (version > RMAversion)
                                 {
                                     // The latest version is newer than the current version.
@@ -2078,6 +2080,8 @@ namespace RMA2021
             txtComCustomer.Text = ""; CBComWarranty.Text = ""; txtComAppearance.Text = ""; CBComAppearanceSort.Text = "";
             txtComCause.Text = ""; CBComCasueSort.Text = ""; CBComWarranty.Text = ""; txtImprovement.Text = ""; txtComPerson.Text = ""; CBComDepartment.Text = "";
             dateTimePickerComFinish.Format = DateTimePickerFormat.Custom; dateTimePickerComFinish.CustomFormat = " ";
+            dateTimePickerComSellDate.Format = DateTimePickerFormat.Custom; dateTimePickerComSellDate.CustomFormat = " ";
+            txtComSN.Text = "";
             txtComImNow.Text = "";
             CBComCur.Text = "";
             bookComID = 0;
@@ -2100,20 +2104,22 @@ namespace RMA2021
                 txtComNumber.Text = DGVcom.CurrentRow.Cells[1].Value.ToString();
                 //  dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
                 txtComModel.Text = DGVcom.CurrentRow.Cells[3].Value.ToString();
-                txtComCustomer.Text = DGVcom.CurrentRow.Cells[4].Value.ToString();
-                txtComAppearance.Text = DGVcom.CurrentRow.Cells[5].Value.ToString();
-                CBComAppearanceSort.Text = DGVcom.CurrentRow.Cells[6].Value.ToString();
-                txtComCause.Text = DGVcom.CurrentRow.Cells[7].Value.ToString();
-                CBComCasueSort.Text = DGVcom.CurrentRow.Cells[8].Value.ToString();//原因分類
-                CBComWarranty.Text = DGVcom.CurrentRow.Cells[9].Value.ToString();//保固
-                txtComImNow.Text = DGVcom.CurrentRow.Cells[10].Value.ToString();//暫時對策
-                CBComCur.Text = DGVcom.CurrentRow.Cells[11].Value.ToString();//目前進度
-                txtImprovement.Text = DGVcom.CurrentRow.Cells[12].Value.ToString();//改善對策
-                txtBulidPerson = DGVcom.CurrentRow.Cells[13].Value.ToString();//建單人
-                txtComPerson.Text = DGVcom.CurrentRow.Cells[14].Value.ToString();//負責人
+                txtComSN.Text = DGVcom.CurrentRow.Cells[4].Value.ToString();//機器序號
+                txtComCustomer.Text = DGVcom.CurrentRow.Cells[5].Value.ToString();
+
+                txtComAppearance.Text = DGVcom.CurrentRow.Cells[7].Value.ToString();
+                CBComAppearanceSort.Text = DGVcom.CurrentRow.Cells[8].Value.ToString();
+                txtComCause.Text = DGVcom.CurrentRow.Cells[9].Value.ToString();
+                CBComCasueSort.Text = DGVcom.CurrentRow.Cells[10].Value.ToString();//原因分類
+                CBComWarranty.Text = DGVcom.CurrentRow.Cells[11].Value.ToString();//保固
+                txtComImNow.Text = DGVcom.CurrentRow.Cells[12].Value.ToString();//暫時對策
+                CBComCur.Text = DGVcom.CurrentRow.Cells[13].Value.ToString();//目前進度
+                txtImprovement.Text = DGVcom.CurrentRow.Cells[14].Value.ToString();//改善對策
+                txtBulidPerson = DGVcom.CurrentRow.Cells[15].Value.ToString();//建單人
+                txtComPerson.Text = DGVcom.CurrentRow.Cells[16].Value.ToString();//負責人
                                                                                  // dateTimePickerComFinish.Text = DGVcom.CurrentRow.Cells[15].Value.ToString();//預計完成日
-                CBComDepartment.Text = DGVcom.CurrentRow.Cells[16].Value.ToString();
-                txtStatus.Text = DGVcom.CurrentRow.Cells[17].Value.ToString();
+                CBComDepartment.Text = DGVcom.CurrentRow.Cells[18].Value.ToString();
+                txtStatus.Text = DGVcom.CurrentRow.Cells[19].Value.ToString();
                 //18 建單日
                 //19 實際完成日
                 //2020/2/8  added
@@ -2127,7 +2133,7 @@ namespace RMA2021
                     dateTimePickerCom.Format = DateTimePickerFormat.Long;
                     dateTimePickerCom.Text = DGVcom.CurrentRow.Cells[2].Value.ToString();
                 }
-                if (DGVcom.CurrentRow.Cells[15].Value.ToString() == "" || DGVcom.CurrentRow.Cells[15].Value.ToString() == " ")
+                if (DGVcom.CurrentRow.Cells[17].Value.ToString() == "" || DGVcom.CurrentRow.Cells[17].Value.ToString() == " ")
                 {
                     dateTimePickerComFinish.Format = DateTimePickerFormat.Custom;
                     dateTimePickerComFinish.CustomFormat = " ";
@@ -2135,12 +2141,22 @@ namespace RMA2021
                 else
                 {
                     dateTimePickerComFinish.Format = DateTimePickerFormat.Long;
-                    dateTimePickerComFinish.Text = DGVcom.CurrentRow.Cells[15].Value.ToString();
+                    dateTimePickerComFinish.Text = DGVcom.CurrentRow.Cells[17].Value.ToString();
+                }
+                if (DGVcom.CurrentRow.Cells[6].Value.ToString() == "" || DGVcom.CurrentRow.Cells[6].Value.ToString() == " ")//出貨日期
+                {
+                    dateTimePickerComSellDate.Format = DateTimePickerFormat.Custom;
+                    dateTimePickerComSellDate.CustomFormat = " ";
+                }
+                else
+                {
+                    dateTimePickerComSellDate.Format = DateTimePickerFormat.Long;
+                    dateTimePickerComSellDate.Text = DGVcom.CurrentRow.Cells[6].Value.ToString();
                 }
 
             }
 
-            if (txtUserNameShow.Text == DGVcom.CurrentRow.Cells[13].Value.ToString())//非本人建立不得修改or delete
+            if (txtUserNameShow.Text == DGVcom.CurrentRow.Cells[15].Value.ToString())//非本人建立不得修改or delete
             {
                 btnComSave.Text = "更新";
                 btnComSave.Enabled = true;
@@ -2199,12 +2215,14 @@ namespace RMA2021
                     }
 
                     // 建單日 = DateTime.Now.ToLocalTime().ToString();//建單日時
-                    cmd.CommandText = $"INSERT INTO rma.CustomerComplaint(客訴編號,客訴日期,機種型號," +
-                      $"客戶名稱,保固,製品問題,問題現象分類,建單日,建單人)" +
+                    cmd.CommandText = $"INSERT INTO rma.CustomerComplaint(客訴編號,客訴日期,機種型號,機器序號," +
+                      $"客戶名稱,出貨日期,保固,製品問題,問題現象分類,建單日,建單人)" +
                               "VALUES('" + txtComNumber.Text + "'" +
                               ",'" + dateTimePickerCom.Text + "'" +
                               ",'" + txtComModel.Text + "'" +
+                              ",'" + txtComSN.Text + "'" +
                               ",'" + txtComCustomer.Text + "'" +
+                              ",'" + dateTimePickerComSellDate.Text + "'" +
                               ",'" + CBComWarranty.Text + "'" +
                               ",'" + txtComAppearance.Text + "'" +
                               ",'" + CBComAppearanceSort.Text + "'" +
@@ -2222,7 +2240,9 @@ namespace RMA2021
                             cmd.CommandText = "UPDATE rma.CustomerComplaint SET 客訴編號='" + txtComNumber.Text + "'" +
                                     ",客訴日期='" + dateTimePickerCom.Text + "'" +
                                     ",機種型號='" + txtComModel.Text + "'" +
+                                    ",機器序號='" + txtComSN.Text + "'" +
                                     ",客戶名稱='" + txtComCustomer.Text + "'" +
+                                    ",出貨日期='" + dateTimePickerComSellDate.Text + "'" +
                                     ",製品問題='" + txtComAppearance.Text + "'" +
                                     ",保固='" + CBComWarranty.Text + "'" +
                                     ",問題現象分類='" + CBComAppearanceSort.Text + "'" +
@@ -2408,7 +2428,9 @@ namespace RMA2021
             dt.Columns.Add(new DataColumn("客訴編號", typeof(string)));
             dt.Columns.Add(new DataColumn("客訴日期", typeof(string)));
             dt.Columns.Add(new DataColumn("機種型號", typeof(string)));
+            dt.Columns.Add(new DataColumn("機器序號", typeof(string)));
             dt.Columns.Add(new DataColumn("客戶名稱", typeof(string)));
+            dt.Columns.Add(new DataColumn("出貨日期", typeof(string)));
             dt.Columns.Add(new DataColumn("製品問題", typeof(string)));
             dt.Columns.Add(new DataColumn("問題現象分類", typeof(string)));
             dt.Columns.Add(new DataColumn("原因分析", typeof(string)));
@@ -2420,19 +2442,21 @@ namespace RMA2021
             dt.Columns.Add(new DataColumn("建單人", typeof(string)));
             dt.Columns.Add(new DataColumn("負責人", typeof(string)));
             dt.Columns.Add(new DataColumn("預計完成日", typeof(string)));
-            dt.Columns.Add(new DataColumn("責任單位", typeof(string)));    
+            dt.Columns.Add(new DataColumn("責任單位", typeof(string)));
             dt.Columns.Add(new DataColumn("狀態", typeof(string)));
             dt.Columns.Add(new DataColumn("建單日", typeof(string)));
             dt.Columns.Add(new DataColumn("實際完成日", typeof(string)));
             MySqlConnection con = new MySqlConnection(cs);
             try
             {
-                string SQLWord = "";    
+                string SQLWord = "";
                 SQLWord = $"SELECT * FROM rma.CustomerComplaint WHERE 流水號 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
                  "|| 客訴編號 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
                  "|| 客訴日期 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
                  "|| 機種型號 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 機器序號 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
                  "|| 客戶名稱 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
+                 "|| 出貨日期 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
                  "|| 製品問題 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
                  "|| 問題現象分類 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
                  "|| 原因分析 LIKE CONCAT('%" + txtComSerach.Text + "%')" +
@@ -2450,15 +2474,15 @@ namespace RMA2021
                  "|| 實際完成日 LIKE CONCAT('%" + txtComSerach.Text + "%')";
                 using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
                 {
-                        mysqlCon.Open();
-                        MySqlDataAdapter sqlDa = new MySqlDataAdapter(SQLWord, mysqlCon);
-                        System.Data.DataTable dtblBook = new System.Data.DataTable();
-                        sqlDa.Fill(dtblBook);
-                        DGVcom.DataSource = dtblBook;
-                        DGVcom.DefaultCellStyle.ForeColor = Color.Blue;
-                        DGVcom.DefaultCellStyle.BackColor = Color.Beige;
-                        DGVcom.Columns[0].Visible = false;//流水號ID
-                }                     
+                    mysqlCon.Open();
+                    MySqlDataAdapter sqlDa = new MySqlDataAdapter(SQLWord, mysqlCon);
+                    System.Data.DataTable dtblBook = new System.Data.DataTable();
+                    sqlDa.Fill(dtblBook);
+                    DGVcom.DataSource = dtblBook;
+                    DGVcom.DefaultCellStyle.ForeColor = Color.Blue;
+                    DGVcom.DefaultCellStyle.BackColor = Color.Beige;
+                    DGVcom.Columns[0].Visible = false;//流水號ID
+                }
             }
             catch (MySqlException)
             {
