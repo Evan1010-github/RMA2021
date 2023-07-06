@@ -105,8 +105,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.6;
-            string DefultFormText = "RMA V4.6安裝版";//first Load Text
+            double RMAversion = 4.7;
+            string DefultFormText = "RMA V4.7安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -2419,7 +2419,11 @@ namespace RMA2021
             this.dateTimePickerComFinish.Format = DateTimePickerFormat.Long;
             this.dateTimePickerComFinish.CustomFormat = null;
         }
-
+        private void dateTimePickerComSellDate_ValueChanged(object sender, EventArgs e)
+        {
+            this.dateTimePickerComSellDate.Format = DateTimePickerFormat.Long;
+            this.dateTimePickerComSellDate.CustomFormat = null;
+        }
         private void BTNComSerach_Click(object sender, EventArgs e)//2023/6/21 增加
         {
             string cs = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
@@ -2493,6 +2497,8 @@ namespace RMA2021
                 con.Close();
             }
         }
+
+
     }
 }
 
