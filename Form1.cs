@@ -105,8 +105,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.7;
-            string DefultFormText = "RMA V4.7安裝版";//first Load Text
+            double RMAversion = 4.8;
+            string DefultFormText = "RMA V4.8安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -2227,7 +2227,7 @@ namespace RMA2021
                               ",'" + txtComAppearance.Text + "'" +
                               ",'" + CBComAppearanceSort.Text + "'" +
                               ",'" + DateTime.Now.ToLocalTime().ToString() + "'" +
-                              ",'" + txtBulidPerson + "')";
+                              ",'" + txtUserNameShow.Text + "')";
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("成功輸入資料!");
@@ -2247,7 +2247,7 @@ namespace RMA2021
                                     ",保固='" + CBComWarranty.Text + "'" +
                                     ",問題現象分類='" + CBComAppearanceSort.Text + "'" +
                                     //  ",建單日='" + DateTime.Now.ToLocalTime().ToString() + "'" +
-                                    //  ",建單人='" + txtBulidPerson + "'" +
+                                    //  ",建單人='" + txtUserNameShow.text + "'" +
                                     " WHERE 流水號='" + bookComID + "'";
                             cmd.ExecuteNonQuery();
                             conn.Close();
