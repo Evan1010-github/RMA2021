@@ -105,8 +105,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.8;
-            string DefultFormText = "RMA V4.8安裝版";//first Load Text
+            double RMAversion = 4.9;
+            string DefultFormText = "RMA V4.9安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -2002,7 +2002,7 @@ namespace RMA2021
             string SQLWord = "";
             if (radioButton1.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 流水號 > 0 "; }//處理中
             if (radioButton2.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 目前進度='待確認'"; }
-            if (radioButton3.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 目前進度='暫停中'"; }
+            if (radioButton3.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 目前進度='列入追蹤'"; }
             if (radioButton4.Checked == true) { SQLWord = "SELECT * FROM rma.CustomerComplaint where 目前進度='已完成'"; }
             switch (CBComDateBetween.Text)
             {
@@ -2216,7 +2216,7 @@ namespace RMA2021
 
                     // 建單日 = DateTime.Now.ToLocalTime().ToString();//建單日時
                     cmd.CommandText = $"INSERT INTO rma.CustomerComplaint(客訴編號,客訴日期,機種型號,機器序號," +
-                      $"客戶名稱,出貨日期,保固,製品問題,問題現象分類,建單日,建單人)" +
+                      $"客戶名稱,出貨日期,保固,製品問題,問題現象分類,建單日,建單人,目前進度)" +   //2023/09/22 新建時'目前進度'為 待確認
                               "VALUES('" + txtComNumber.Text + "'" +
                               ",'" + dateTimePickerCom.Text + "'" +
                               ",'" + txtComModel.Text + "'" +
@@ -2227,7 +2227,8 @@ namespace RMA2021
                               ",'" + txtComAppearance.Text + "'" +
                               ",'" + CBComAppearanceSort.Text + "'" +
                               ",'" + DateTime.Now.ToLocalTime().ToString() + "'" +
-                              ",'" + txtUserNameShow.Text + "')";
+                              ",'" + txtUserNameShow.Text + "'" +
+                              ",'" + "待確認" + "')";
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("成功輸入資料!");

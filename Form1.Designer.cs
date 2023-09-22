@@ -1708,9 +1708,9 @@ namespace RMA2021
             radioButton3.AutoSize = true;
             radioButton3.Location = new System.Drawing.Point(210, 38);
             radioButton3.Name = "radioButton3";
-            radioButton3.Size = new System.Drawing.Size(89, 27);
+            radioButton3.Size = new System.Drawing.Size(107, 27);
             radioButton3.TabIndex = 0;
-            radioButton3.Text = "暫停中";
+            radioButton3.Text = "列入追蹤";
             radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -2089,7 +2089,7 @@ namespace RMA2021
             // 
             CBComCur.BackColor = System.Drawing.Color.AntiqueWhite;
             CBComCur.FormattingEnabled = true;
-            CBComCur.Items.AddRange(new object[] { "待追蹤", "待確認問題", "暫停中", "已完成" });
+            CBComCur.Items.AddRange(new object[] { "待確認", "列入追蹤", "已完成" });
             CBComCur.Location = new System.Drawing.Point(145, 733);
             CBComCur.Margin = new System.Windows.Forms.Padding(5);
             CBComCur.Name = "CBComCur";
