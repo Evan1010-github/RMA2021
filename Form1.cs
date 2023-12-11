@@ -1547,8 +1547,8 @@ namespace RMA2021
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "UPDATE rma.micrawdata SET 工站 = '測試-EX' where(序號 ='" + txtFinishSN.Text + "' and 工站 = '測試')LIMIT 5;";
                 cmd.ExecuteNonQuery();
-                // cmd.CommandText = "UPDATE rma.micrawdata SET 工站 = '內檢-EX' where(序號 ='" + txtFinishSN.Text + "' and 工站 = '內檢')LIMIT 5;";
-                //  cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE rma.micrawdata SET 工站 = '內檢-EX' where(序號 ='" + txtFinishSN.Text + "' and 工站 = '內檢')LIMIT 5;";
+                cmd.ExecuteNonQuery();
                 cmd.CommandText = "UPDATE rma.micrawdata SET 工站 = 'FQC-EX' where(序號 ='" + txtFinishSN.Text + "' and 工站 = 'FQC')LIMIT 5;";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "UPDATE rma.micrawdata SET 工站 = '包裝-EX' where(序號 ='" + txtFinishSN.Text + "' and 工站 = '包裝')LIMIT 5;";
