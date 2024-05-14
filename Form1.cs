@@ -105,8 +105,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.9;
-            string DefultFormText = "RMA V4.9安裝版";//first Load Text
+            double RMAversion = 4.92;
+            string DefultFormText = "RMA V4.92安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -1393,7 +1393,7 @@ namespace RMA2021
             conn.Open();//開啟通道，建立連線，出現異常時,使用try catch語句
             using var cmd = new MySqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "UPDATE rma.rmarawdata SET 狀態='" + "待測試" +
+            cmd.CommandText = "UPDATE rma.rmarawdata SET 狀態='" + "待校驗" +
                     "' WHERE 流水號='" + bookID + "'";
             cmd.ExecuteNonQuery();
             conn.Close();
