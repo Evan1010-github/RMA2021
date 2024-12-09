@@ -105,8 +105,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.92;
-            string DefultFormText = "RMA V4.92安裝版";//first Load Text
+            double RMAversion = 4.93;
+            string DefultFormText = "RMA V4.93安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
@@ -1483,10 +1483,10 @@ namespace RMA2021
             e.Graphics.DrawString("使用電壓: 【" + textVolt.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 550, 100);   ///new 2022/2/8
             e.Graphics.DrawString("半成品板號: 【" + txtBoardName.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 50, 125);
             e.Graphics.DrawString("半成品序號: 【" + txtSemiSN.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 300, 125);
-            e.Graphics.DrawString("出貨日: 【" + dateTimePicker1.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 550, 125); // new 2022/2/8
-            e.Graphics.DrawString("配件: 【" + txtAccessories.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 50, 150);
-            e.Graphics.DrawString("版本: 【" + txtVer.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 300, 150);
-            e.Graphics.DrawString("保固內: 【" + txtWarranty.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 550, 150);
+            e.Graphics.DrawString("出貨日: 【" + dateTimePicker1.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 50, 150); // new 2022/2/8
+            e.Graphics.DrawString("配件: 【" + txtAccessories.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 300, 150);
+            e.Graphics.DrawString("版本: 【" + txtVer.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 500, 150);
+            e.Graphics.DrawString("保固內: 【" + txtWarranty.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 650, 150);
             e.Graphics.DrawString("送回原因: 【" + txtReturnCause.Text + "】", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 100, 200);
             e.Graphics.DrawString("處理內容:_________________________________________________________________________________________", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 100, 300);
             e.Graphics.DrawString("         _________________________________________________________________________________________", new Font(new FontFamily("新細明體"), 14), System.Drawing.Brushes.Black, 100, 325);
