@@ -105,8 +105,8 @@ namespace RMA2021
         private void softUpdateCheck()
         {
             linkLabel1.Text = "RMA更新";
-            double RMAversion = 4.93;
-            string DefultFormText = "RMA V4.93安裝版";//first Load Text
+            double RMAversion = 4.94;
+            string DefultFormText = "RMA V4.94安裝版";//first Load Text
             // Connect to the MySQL database.
             string cs1 = @"server=192.168.1.31;port=36288;userid=rma;password=GdUmm0J4EnJZneue;database=rma;charset=utf8";
             using (MySqlConnection con = new MySqlConnection(cs1))
