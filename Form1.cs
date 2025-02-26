@@ -449,6 +449,12 @@ namespace RMA2021
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // 將 , 替換為 、 /2025/02/26 為避免EXCEL匯入時分隔錯誤NCR
+            txtReturnCause.Text = txtReturnCause.Text.Replace(",", "、");
+            textBoxFaultCause.Text = textBoxFaultCause.Text.Replace(",", "、");
+            txtOldFixed2.Text = txtOldFixed2.Text.Replace(",", "、");
+            txtFinishMark.Text = txtFinishMark.Text.Replace(",", "、");
+
             txtReturnCause.Text = txtReturnCause.Text.Replace("'", "\\'");//2022/11/10 can't 輸入報錯問題
             if (txtStatus.Text != "待結案")
             {
